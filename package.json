@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt-themes/elements": "^0.7.2",
+    "@nuxt-themes/typography": "^0.8.0",
+    "@nuxt/content": "^2.4.3",
+    "@types/node": "^18.13.0",
+    "nuxt": "^3.1.2"
+  }
+}
