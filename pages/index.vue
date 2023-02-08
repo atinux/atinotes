@@ -60,7 +60,7 @@ function save() {
 </script>
 
 <template>
-  <p class="edit"><span @click="editMode">Edit this page</span></p>
+  <p class="edit"><span @click="editMode">{{ editing ? 'Editing' : 'Edit' }} this page</span></p>
   <div class="page" @dblclick="editMode">
     <form v-if="editing" class="editor-wrapper" @submit.prevent="save">
       <textarea v-model="page.body" ref="editor" @blur="save" @input="autogrow" />
@@ -101,6 +101,9 @@ function save() {
       background: rgb(243, 243, 243);
       border-radius: 5px;
     }
+    a {
+      color: blue;
+    }
   }
 }
 .editor-wrapper {
@@ -133,5 +136,8 @@ function save() {
   font-size: 12px;
   cursor: pointer;
   color: #999;
+  &:hover {
+    color: #777;
+  }
 }
 </style>
