@@ -3,6 +3,7 @@ main = "./.output/server/index.mjs"
 workers_dev = true
 compatibility_date = "2022-09-10"
 account_id = "f1e84ebed8564d989bffd46d5a988296"
+route = "atinotes.nuxt.space"
 kv_namespaces = [
   { binding = "ATINOTES", id = "901ff44cce4f403ba4baf21fd9663867", preview_id = "58782f3613844e39be7af020f8ebcd01" }
 ]

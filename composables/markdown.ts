@@ -8,7 +8,7 @@ export async function parseMarkdown (body: string) {
     await highlight(parsed)
   }
 
-  return parsed.body
+  return parsed
 }
 
 export async function highlight(parsed) {

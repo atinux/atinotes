@@ -7,12 +7,12 @@ const password = usePassword()
 
 if (!page.value) {
   page.value = await $fetch('/api/pages/index')
-  page.value.ast = await parseMarkdown(page.value.body)
+  page.value.parsed = await parseMarkdown(page.value.body)
 }
 
 if (page.value && process.client) {
   onMounted(async () => {
-    page.value.ast = await parseMarkdown(page.value.body)
+    page.value.parsed = await parseMarkdown(page.value.body)
   })
 }
 
@@ -50,7 +50,7 @@ function save() {
     },
     body: page.value.body
   }).then(async () => {
-    page.value.ast = await parseMarkdown(page.value.body)
+    page.value.parsed = await parseMarkdown(page.value.body)
     editing.value = saving.value = false
   }).catch(err => {
     editing.value = saving.value = false
@@ -60,15 +60,19 @@ function save() {
 </script>
 
 <template>
+  <Head>
+    <Title>{{ page.parsed.title || 'Atinotes' }}</Title>
+    <Meta name="description" :content="page.parsed.description || 'A notes taking app on the edge'" />
+  </Head>
   <p class="edit"><span @click="editMode">{{ editing ? 'Editing' : 'Edit' }} this page</span></p>
   <div class="page" @dblclick="editMode">
     <form v-if="editing" class="editor-wrapper" @submit.prevent="save">
       <textarea v-model="page.body" ref="editor" @blur="save" @input="autogrow" />
       <button type="submit">{{ saving ? 'Saving' : 'Save' }}</button>
     </form>
-    <ContentRendererMarkdown v-else :value="{ body: page.ast }" class="body" />
+    <ContentRendererMarkdown v-else :value="page.parsed" class="body" />
   </div>
-  <p class="password" v-if="password"><span @click="updatePassword">Update password</span></p>
+  <p class="password" v-show="password"><span @click="updatePassword">Update password</span></p>
 </template>
 
 <style lang="postcss">
