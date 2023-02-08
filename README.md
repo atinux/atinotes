@@ -1,6 +1,6 @@
 # Atinotes
 
-Read more on https://atinotes.nuxt.workers.dev
+Read more on https://atinotes.nuxt.space
 
 ## Setup
 
