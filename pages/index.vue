@@ -5,11 +5,13 @@ const saving = ref(false)
 const page = useState('page')
 const password = usePassword()
 
+// Fetch the page on SSR
 if (!page.value) {
   page.value = await $fetch('/api/pages/index')
   page.value.parsed = await parseMarkdown(page.value.body)
 }
 
+// Re-parse on hydration to enable shiki highlight for code blocks
 if (page.value && process.client) {
   onMounted(async () => {
     page.value.parsed = await parseMarkdown(page.value.body)
