@@ -1,11 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  // Enable content to leverages <ContentRendererMarkdown /> component
   modules: ['@nuxt/content'],
-  postcss: {
-    plugins: {
-      'postcss-nested': {}
-    }
-  },
+  // Define storage used in API routes with useStorage()
   nitro: {
     storage: {
       notes: {
@@ -13,6 +10,7 @@ export default defineNuxtConfig({
         binding: 'ATINOTES'
       }
     },
+    // Overwrite notes storage in development using FS
     devStorage: {
       notes: {
         driver: 'fs',
@@ -20,7 +18,14 @@ export default defineNuxtConfig({
       }
     }
   },
+  // Password to edit the notes
   runtimeConfig: {
     password: process.env.NUXT_PASSWORD || 'ilovenuxt'
-  }
+  },
+  // Enable CSS nesting: https://github.com/postcss/postcss-nested
+  postcss: {
+    plugins: {
+      'postcss-nested': {}
+    }
+  },
 })
