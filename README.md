@@ -36,3 +36,17 @@ npm run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Deployment
+
+Make sure to update the [wrangler.toml](./wrangler.toml) file with your Cloudflare account ID and zone ID.
+
+Then, you can run:
+
+```bash
+npm run deploy
+```
+
+## License
+
+MIT - Sébastien Chopin
