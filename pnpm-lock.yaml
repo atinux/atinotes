@@ -5,7 +5,7 @@ specifiers:
   '@nuxt/devtools': ^0.1.2
   '@types/node': ^18.13.0
   nuxt: ^3.2.0
-  nuxt-og-image: ^1.4.13
+  nuxt-og-image: ^1.4.19
   postcss-nested: ^6.0.0
 
 devDependencies:
@@ -13,7 +13,7 @@ devDependencies:
   '@nuxt/devtools': 0.1.2_nuxt@3.2.0
   '@types/node': 18.13.0
   nuxt: 3.2.0_@types+node@18.13.0
-  nuxt-og-image: 1.4.13
+  nuxt-og-image: 1.4.19
   postcss-nested: 6.0.0
 
 packages:
@@ -4382,10 +4382,10 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /nuxt-og-image/1.4.13:
-    resolution: {integrity: sha512-1HCPnw9iDaBdQj5fsnlzK3DaooU91mz8ehPbT3jSIqRAe5ypj0JZYmxgD4xWixpzkiOYDpR7VlQ7fSS/vCJ2fg==}
+  /nuxt-og-image/1.4.19:
+    resolution: {integrity: sha512-0308L4o1TIo/0V3DzArmf5SmbCW0rVRIq16sNtsfElEcxG9TL6CCoZV+qZf+ZYRWlPgFB+ajCATUhrsATla/yA==}
     dependencies:
-      '@nuxt/kit': 3.1.2
+      '@nuxt/kit': 3.2.0
       '@types/fs-extra': 11.0.1
       birpc: 0.2.3
       chalk: 5.2.0
@@ -4400,7 +4400,7 @@ packages:
       pathe: 1.1.0
       playwright-core: 1.30.0
       radix3: 1.0.0
-      satori: 0.2.0
+      satori: 0.2.3
       satori-html: 0.3.2
       sirv: 2.0.2
       std-env: 3.3.2
@@ -5350,8 +5350,8 @@ packages:
       ultrahtml: 1.2.0
     dev: true
 
-  /satori/0.2.0:
-    resolution: {integrity: sha512-QSqOYYN0A25qO+smoGMXKlTj/B0F6hcfCjjinP2sXO8r3zrZYIovo+PADFF4aegZTMuQGS1/n/8nKd6h62ohDQ==}
+  /satori/0.2.3:
+    resolution: {integrity: sha512-jl/+sFkz3pBfGip7034Uvn/Hp1FZq4prKXIZO28rV90DS3jTU6uXBV0FRX4ooYoO27f3rGNXKhSKyDST5FdmQA==}
     engines: {node: '>=16'}
     dependencies:
       '@shuding/opentype.js': 1.4.0-beta.0
