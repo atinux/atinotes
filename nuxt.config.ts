@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // Enable content to leverages <ContentRendererMarkdown /> component
-  modules: ['@nuxt/content'],
+  modules: ['@nuxt/content', 'nuxt-og-image', '@nuxt/devtools'],
   // Define storage used in API routes with useStorage()
   nitro: {
     storage: {
@@ -28,4 +28,7 @@ export default defineNuxtConfig({
       'postcss-nested': {}
     }
   },
+  ogImage: {
+    url: 'https://atinotes.nuxt.space'
+  }
 })
