@@ -49,4 +49,4 @@ npm run deploy
 
 ## License
 
-MIT - Sébastien Chopin
+[MIT](./LICENSE) - Sébastien Chopin
