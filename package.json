@@ -13,7 +13,7 @@
     "@nuxt/devtools": "^0.4.0",
     "@types/node": "^18.15.11",
     "nuxt": "^3.4.1",
-    "nuxt-og-image": "^1.5.7",
+    "nuxt-og-image": "^1.5.8",
     "postcss-nested": "^6.0.1"
   },
   "resolutions": {
