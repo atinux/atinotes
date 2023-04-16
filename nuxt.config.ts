@@ -1,7 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // Enable content to leverages <ContentRendererMarkdown /> component
-  modules: ['@nuxt/content', 'nuxt-og-image'],
+  modules: [
+    '@nuxt/content',
+    // 'nuxt-og-image'
+  ],
   devtools: {
     enabled: true
   },
@@ -30,8 +33,5 @@ export default defineNuxtConfig({
     plugins: {
       'postcss-nested': {}
     }
-  },
-  ogImage: {
-    url: 'https://atinotes.nuxt.space'
   }
 })
