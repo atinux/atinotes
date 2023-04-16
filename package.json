@@ -5,8 +5,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "deploy": "NITRO_PRESET=cloudflare yarn build && wrangler publish"
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
     "@nuxt/content": "^2.5.2",

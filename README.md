@@ -1,6 +1,6 @@
 # Atinotes
 
-Read more on https://atinotes.nuxt.space
+Read more on https://atinotes.pages.dev
 
 https://user-images.githubusercontent.com/904724/217890680-279977de-491c-4af0-bd92-3576a4770270.mp4
 
@@ -37,15 +37,27 @@ npm run preview
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
-## Deployment
+## Deployment on Cloudflare Pages
 
-Make sure to update the [wrangler.toml](./wrangler.toml) file with your Cloudflare account ID and zone ID.
+Once you created your GitHub repository with this template, you can connect to it, then add those env variables:
 
-Then, you can run:
+```
+NODE_VERSION=18
+NPM_FLAGS=--version
+PASSWORD=<your-password>
+```
+
+Then, setup the build command on CloudFlare Pages to be:
 
 ```bash
-npm run deploy
+npx pnpm i --store=node_modules/.pnpm-store && npm run build
 ```
+
+This will use `pnpm` to install dependencies and build the application.
+
+The output directory is: `dist/`
+
+That's all :sparkles:
 
 ## License
 
