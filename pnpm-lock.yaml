@@ -4,6 +4,7 @@ overrides:
   consola: ^3
   nitropack: npm:nitropack-edge@2.4.0-28027501.1cf01bf
   unstorage: ^1.5.0
+  unenv: ^1.4.1
 
 devDependencies:
   '@nuxt/content':
@@ -19,7 +20,7 @@ devDependencies:
     specifier: ^3.4.1
     version: 3.4.1(@types/node@18.15.11)
   nuxt-og-image:
-    specifier: ^1.5.8
+    specifier: ^1.5.7
     version: 1.5.8
   postcss-nested:
     specifier: ^6.0.1
