@@ -4,9 +4,9 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, message: 'Missing slug' })
   }
 
-  const storage = useStorage()
+  const notes = useStorage('notes')
 
-  let body = (await storage.getItem(`notes:${slug}`))
+  let body = (await notes.getItem(slug))
 
   if (typeof body !== 'string') {
     body = '# Hello'
