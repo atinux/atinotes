@@ -17,6 +17,8 @@
     "postcss-nested": "^6.0.1"
   },
   "resolutions": {
-    "consola": "^3"
+    "consola": "^3",
+    "nitropack": "npm:nitropack-edge@2.4.0-28027501.1cf01bf",
+    "unstorage": "^1.5.0"
   }
 }

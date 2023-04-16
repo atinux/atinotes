@@ -2,7 +2,8 @@
 export default eventHandler(event => {
   setEnv(event)
 
-  if (!process.dev) {
-    globalThis.ATINOTES = env('ATINOTES')
-  }
+  // if (!process.dev) {
+  //   globalThis.ATINOTES = env('ATINOTES')
+  // }
+  // console.log('midd')
 })
