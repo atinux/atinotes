@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  extends: ['./layers/nuxtflare/'],
   // Enable content to leverages <ContentRendererMarkdown /> component
   modules: ['@nuxt/content'],
   devtools: {
@@ -31,6 +32,9 @@ export default defineNuxtConfig({
       'postcss-nested': {}
     }
   },
+  typescript: {
+    includeWorkspace: true
+  }
   // ogImage: {
   //   url: 'https://atinotes.nuxt.space'
   // }
