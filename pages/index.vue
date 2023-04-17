@@ -66,7 +66,7 @@ function save() {
     <Html lang="en" />
     <Title>{{ page.parsed.title || 'Atinotes' }}</Title>
     <Meta name="description" :content="page.parsed.description || 'A notes taking app on the edge'" />
-    <!-- <OgImageStatic background="linear-gradient(to bottom, white, #eeeeee)" titleFontSize="100px" descriptionFontSize="50px" /> -->
+    <OgImageDynamic background="linear-gradient(to bottom, white, #eeeeee)" titleFontSize="100px" descriptionFontSize="50px" />
   </Head>
   <p class="edit"><span @click="editMode">{{ editing ? 'Editing' : 'Edit' }} this page</span></p>
   <div class="page" @dblclick="editMode">

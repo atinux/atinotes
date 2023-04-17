@@ -20,8 +20,8 @@ devDependencies:
     specifier: ^3.4.1
     version: 3.4.1(@types/node@18.15.11)
   nuxt-og-image:
-    specifier: ^1.5.7
-    version: 1.5.8
+    specifier: ^2.0.0-beta.17
+    version: 2.0.0-beta.17
   postcss-nested:
     specifier: ^6.0.1
     version: 6.0.1(postcss@8.4.22)
@@ -919,11 +919,11 @@ packages:
       - supports-color
     dev: true
 
-  /@nuxt/kit@3.3.1:
-    resolution: {integrity: sha512-zb7/2FUIB1g7nl6K6qozUzfG5uu4yrs9TQjZvpASnPBZ/x1EuJX5k3AA71hMMIVBEX9Adxvh9AuhDEHE5W26Zg==}
+  /@nuxt/kit@3.3.3:
+    resolution: {integrity: sha512-8ql3DweT1BNOCM6mmP8st+33NCAHHvmQuOS6Q75kXMZ6Ygqv06hxp5slpLXpT1ZOEoM+vzfkjO2lJ3rnjWYC4Q==}
     engines: {node: ^14.18.0 || ^16.10.0 || ^17.0.0 || ^18.0.0 || ^19.0.0}
     dependencies:
-      '@nuxt/schema': 3.3.1
+      '@nuxt/schema': 3.3.3
       c12: 1.2.0
       consola: 3.0.2
       defu: 6.1.2
@@ -995,8 +995,8 @@ packages:
       - supports-color
     dev: true
 
-  /@nuxt/schema@3.3.1:
-    resolution: {integrity: sha512-E8HWzU43rXzqwDTmWduTLHY4xIwRSAUt1LbpuE9IjZ4uJZq5Mbaj4nfhANNsTQGw2c+O+rL81yzAP3i61LEJDw==}
+  /@nuxt/schema@3.3.3:
+    resolution: {integrity: sha512-OxedDFqBJG8bfTEDOH5hVbQLXpFpSmBOM/oC6J4dTqM2GiWxYJysML5Lo7FPSMqFkTtgxVmd75bp+DRPE5XzWA==}
     engines: {node: ^14.18.0 || ^16.10.0 || ^17.0.0 || ^18.0.0 || ^19.0.0}
     dependencies:
       c12: 1.2.0
@@ -4962,10 +4962,10 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /nuxt-og-image@1.5.8:
-    resolution: {integrity: sha512-j07Wo2WQZ9iK58oDRmHbXHPkW18xXEawjFTwXRhXAQV1v6XPilBtViQRQFOYvS59+1uwBPNJCe0Jrk3b6U9D5Q==}
+  /nuxt-og-image@2.0.0-beta.17:
+    resolution: {integrity: sha512-itiS3cD2eU6Kxs4INYBj5Bpaaz+l7uufAk/Y7pSvQkAl+O6PWWeyz3MwadLAdfySIw6FLcClcWcHJCj1Vs6+OQ==}
     dependencies:
-      '@nuxt/kit': 3.3.1
+      '@nuxt/kit': 3.3.3
       '@types/fs-extra': 11.0.1
       birpc: 0.2.11
       chalk: 5.2.0
@@ -4976,11 +4976,12 @@ packages:
       flatted: 3.2.7
       fs-extra: 11.1.1
       launch-editor: 2.6.0
+      ofetch: 1.0.1
       ohash: 1.0.0
       pathe: 1.1.0
       playwright-core: 1.32.3
       radix3: 1.0.1
-      satori: 0.4.3
+      satori: 0.4.4
       satori-html: 0.3.2
       sirv: 2.0.2
       std-env: 3.3.2
@@ -6061,8 +6062,8 @@ packages:
       ultrahtml: 1.2.0
     dev: true
 
-  /satori@0.4.3:
-    resolution: {integrity: sha512-gGiXXD52Rk0vkknf0ntf7Bmn0BzoMp9bU/wVdQiUFTf1vRLpxixlsMlT4hP6oqF+Z7sb98+dNtLGJ3ZVVPDyrg==}
+  /satori@0.4.4:
+    resolution: {integrity: sha512-UCgoY7CXibFQmgI4ay4QSWUOca07nI9pY56w8NKrBq+bkGgiMbcPXZWj9bxukyJkEl/cgAICGjjxvwlDF2NYRw==}
     engines: {node: '>=16'}
     dependencies:
       '@shuding/opentype.js': 1.4.0-beta.0
