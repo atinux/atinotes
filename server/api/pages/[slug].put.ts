@@ -8,14 +8,13 @@ export default defineEventHandler(async (event) => {
   // Force being a string (CF workers always returns a Buffer)
   const body = (await readRawBody(event, 'utf8'))?.toString() || ''
 
-  const PASSWORD = globalThis.__env__?.PASSWORD || process.env.PASSWORD
-  if (!PASSWORD) {
+  if (!process.env.PASSWORD) {
     throw createError({
       statusCode: 500,
       message: 'Missing PASSWORD en variable'
     })
   }
-  if (getHeader(event, 'password') !== PASSWORD) {
+  if (getHeader(event, 'password') !== process.env.PASSWORD) {
     throw createError({
       statusCode: 401,
       message: 'Wrong password'
