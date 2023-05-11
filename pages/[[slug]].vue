@@ -2,12 +2,13 @@
 const editor = ref(null)
 const editing = ref(false)
 const saving = ref(false)
-const page = useState('page')
 const password = usePassword()
+const slug = useRoute().params.slug || 'index'
+const page = useState(`page-${slug}`)
 
 // Fetch the page on SSR
 if (!page.value) {
-  page.value = await $fetch('/api/pages/index')
+  page.value = await $fetch(`/api/pages/${slug}`)
   page.value.parsed = await parseMarkdown(page.value.body)
 }
 
@@ -45,7 +46,7 @@ function autogrow() {
 function save() {
   if (!editing.value || saving.value) return
   saving.value = true
-  $fetch('/api/pages/index', {
+  $fetch(`/api/pages/${slug}`, {
     method: 'PUT',
     headers: {
       password: password.value
