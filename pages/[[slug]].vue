@@ -6,16 +6,15 @@ const password = usePassword()
 const slug = useRoute().params.slug || 'index'
 const page = useState(`page-${slug}`)
 
-// Fetch the page on SSR
+// Fetch the page once
 if (!page.value) {
   page.value = await $fetch(`/api/pages/${slug}`)
-  page.value.parsed = await parseMarkdown(page.value.body)
 }
 
 // Re-parse on hydration to enable shiki highlight for code blocks
 if (page.value && process.client) {
   onMounted(async () => {
-    page.value.parsed = await parseMarkdown(page.value.body)
+    page.value.parsed = await highlight(page.value.parsed)
   })
 }
 
@@ -52,8 +51,8 @@ function save() {
       password: password.value
     },
     body: page.value.body
-  }).then(async () => {
-    page.value.parsed = await parseMarkdown(page.value.body)
+  }).then(async ({ parsed }) => {
+    page.value.parsed = await highlight(parsed)
     editing.value = saving.value = false
   }).catch(err => {
     editing.value = saving.value = false

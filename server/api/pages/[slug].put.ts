@@ -1,4 +1,4 @@
-export default defineEventHandler(async (event) => {
+export default eventHandler(async (event) => {
   const { slug } = event.context.params || {}
   if (!slug) {
     throw createError({ statusCode: 400, message: 'Missing slug' })
@@ -7,6 +7,7 @@ export default defineEventHandler(async (event) => {
 
   // Force being a string (CF workers always returns a Buffer)
   const body = (await readRawBody(event, 'utf8'))?.toString() || ''
+  const parsed = await parseMarkdown(body)
 
   if (!process.env.PASSWORD) {
     throw createError({
@@ -21,7 +22,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  await notes.setItem(slug, body)
+  await notes.setItem(slug, { body, parsed })
 
-  return { slug, body }
+  return { slug, body, parsed }
 })

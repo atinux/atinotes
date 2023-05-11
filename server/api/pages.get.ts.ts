@@ -1,3 +1,3 @@
-export default defineEventHandler(async (event) => {
+export default eventHandler(async (event) => {
   return useStorage('notes').getKeys()
 })
