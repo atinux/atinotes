@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   // Enable content to leverages <ContentRendererMarkdown /> component
   modules: [
     '@nuxt/content',
-    'nuxt-og-image'
+    // 'nuxt-og-image'
   ],
   devtools: {
     enabled: true
