@@ -14,8 +14,8 @@ devDependencies:
     specifier: ^0.6.1
     version: 0.6.1(nuxt@3.5.3)(vite@4.3.9)
   '@nuxthq/neo':
-    specifier: ^0.2.0
-    version: 0.2.0
+    specifier: ^0.3.2
+    version: 0.3.2(h3@1.6.6)
   '@types/node':
     specifier: ^20.3.1
     version: 20.3.1
@@ -1220,8 +1220,8 @@ packages:
       - vue-tsc
     dev: true
 
-  /@nuxthq/neo@0.2.0:
-    resolution: {integrity: sha512-H4W5C3O+cC0e5r8xEL1x2rGhqe9vK+REjczjhvH3ssvWvKPPu+pS90gMx+m34aqAZhRQSdohlZFnVjoikG3aXg==}
+  /@nuxthq/neo@0.3.2(h3@1.6.6):
+    resolution: {integrity: sha512-rgtElrljJ9dIjD64rLSmNgcagCBhzUUsC8lBek3VguXljrj1PlWtvZpxbivbqO69HuX09wAxB1eTa1U0IgUuSQ==}
     dependencies:
       '@libsql/client': 0.2.1(bufferutil@4.0.7)(utf-8-validate@6.0.3)
       '@miniflare/r2': 2.14.0
@@ -1230,8 +1230,10 @@ packages:
       bufferutil: 4.0.7
       drizzle-kit: 0.19.1
       drizzle-orm: 0.27.0(@libsql/client@0.2.1)(better-sqlite3@8.4.0)
+      h3-zod: 0.5.1(h3@1.6.6)(zod@3.21.4)
       perfect-debounce: 1.0.0
       utf-8-validate: 6.0.3
+      zod: 3.21.4
     transitivePeerDependencies:
       - '@aws-sdk/client-rds-data'
       - '@cloudflare/workers-types'
@@ -1244,6 +1246,7 @@ packages:
       - '@vercel/postgres'
       - bun-types
       - encoding
+      - h3
       - knex
       - kysely
       - mysql2
@@ -3777,6 +3780,16 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       duplexer: 0.1.2
+    dev: true
+
+  /h3-zod@0.5.1(h3@1.6.6)(zod@3.21.4):
+    resolution: {integrity: sha512-hltUPbYv7XYAzZJIvA2lTfRBO9QyDXhALmalfRaVdjSeuCV4vLi7hULaA+n+orGR68rRLFZ2Gc9hbfQ756GZpg==}
+    peerDependencies:
+      h3: ^1.6.0
+      zod: ^3.21.0
+    dependencies:
+      h3: 1.6.6
+      zod: 3.21.4
     dev: true
 
   /h3@1.6.6:

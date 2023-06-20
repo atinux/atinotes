@@ -6,7 +6,6 @@ export default eventHandler(async (event) => {
     })
   }
   const { password } = (await readBody(event)) || {}
-  console.log(password, process.env.PASSWORD)
   if (password !== process.env.PASSWORD) {
     throw createError({
       statusCode: 401,

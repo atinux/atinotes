@@ -21,6 +21,8 @@ Start the development server on http://localhost:3000
 npm run dev
 ```
 
+Copy the `.env.example` to `.env` and update the variables to your own.
+
 ## Production
 
 Build the application for production:

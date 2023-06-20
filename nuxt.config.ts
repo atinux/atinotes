@@ -9,10 +9,6 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true
   },
-  // Password to edit the notes
-  runtimeConfig: {
-    password: process.env.NUXT_PASSWORD || 'ilovenuxt'
-  },
   // Enable CSS nesting: https://github.com/postcss/postcss-nested
   postcss: {
     plugins: {
