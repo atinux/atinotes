@@ -43,6 +43,7 @@ Once you created your GitHub repository with this template, you can connect to i
 
 ```
 PASSWORD=<your-password>
+NUXT_SESSION_PASSWORD=<a-32-characters-long-password>
 ```
 
 Then, setup the build command on CloudFlare Pages to be:
@@ -52,6 +53,8 @@ nuxt build
 ```
 
 The output directory is: `dist/`
+
+Next, you need to link a KV namespace to the deployment, the binding should be named `KV`.
 
 That's all :sparkles:
 

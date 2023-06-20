@@ -1,3 +1,3 @@
 export default eventHandler(async (event) => {
-  return useStorage('notes').getKeys()
+  return useKV('notes').getKeys()
 })

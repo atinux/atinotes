@@ -1,28 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // Enable content to leverages <ContentRendererMarkdown /> component
+  extends: '@nuxthq/neo',
   modules: [
     '@nuxt/content',
     'nuxt-og-image'
   ],
   devtools: {
     enabled: true
-  },
-  // Define storage used in API routes with useStorage()
-  nitro: {
-    storage: {
-      notes: {
-        driver: 'cloudflare-kv-binding',
-        binding: 'ATINOTES'
-      }
-    },
-    // Overwrite notes storage in development using FS
-    devStorage: {
-      notes: {
-        driver: 'fs',
-        base: './.data/notes'
-      }
-    }
   },
   // Password to edit the notes
   runtimeConfig: {

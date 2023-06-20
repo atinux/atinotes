@@ -2,9 +2,10 @@
 const editor = ref(null)
 const editing = ref(false)
 const saving = ref(false)
-const password = usePassword()
+const password = ref('')
 const slug = useRoute().params.slug || 'index'
 const page = useState(`page-${slug}`)
+const { loggedIn, fetch: refreshSession, clear } = useUserSession()
 
 // Fetch the page once
 if (!page.value) {
@@ -19,21 +20,13 @@ if (page.value && process.client) {
 }
 
 async function editMode() {
-  if (!password.value) {
-    password.value = prompt('What is the password?')
-    if (!password.value) {
-      alert('Password cannot be empty')
-      return
-    }
+  if (!loggedIn.value) {
+    return
   }
   editing.value = true
   await nextTick()
   editor.value.focus()
   autogrow()
-}
-
-function updatePassword() {
-  password.value = prompt('What is the password?')
 }
 
 function autogrow() {
@@ -47,9 +40,6 @@ function save() {
   saving.value = true
   $fetch(`/api/pages/${slug}`, {
     method: 'PUT',
-    headers: {
-      password: password.value
-    },
     body: page.value.body
   }).then(async ({ parsed }) => {
     page.value.parsed = await highlight(parsed)
@@ -58,6 +48,15 @@ function save() {
     editing.value = saving.value = false
     alert(err.data.message)
   })
+}
+
+async function login() {
+  $fetch('/api/login', {
+    method: 'POST',
+    body: { password: password.value }
+  })
+  .then(refreshSession)
+  .catch(() => alert('Wrong password'))
 }
 </script>
 
@@ -68,7 +67,6 @@ function save() {
     <Meta name="description" :content="page.parsed.description || 'A notes taking app on the edge'" />
     <OgImageDynamic background="linear-gradient(to bottom, white, #eeeeee)" titleFontSize="100px" descriptionFontSize="50px" />
   </Head>
-  <p class="edit"><span @click="editMode">{{ editing ? 'Editing' : 'Edit' }} this page</span></p>
   <div class="page" @dblclick="editMode">
     <form v-if="editing" class="editor-wrapper" @submit.prevent="save">
       <textarea v-model="page.body" ref="editor" @blur="save" @input="autogrow" />
@@ -76,7 +74,14 @@ function save() {
     </form>
     <ContentRendererMarkdown v-else :value="page.parsed" class="body" />
   </div>
-  <p class="password" v-show="password"><span @click="updatePassword">Update password</span></p>
+  <p class="edit" v-if="loggedIn">
+    <span @click="editMode">{{ editing ? 'Editing' : 'Edit' }} this page</span> ·
+    <span @click="clear">logout</span>
+  </p>
+  <form class="login" v-else @submit.prevent="login">
+    <input type="password" v-model="password" placeholder="Password" />
+    <button type="submit">Login</button>
+  </form>
 </template>
 
 <style lang="postcss">
@@ -138,14 +143,41 @@ function save() {
     resize: none;
   }
 }
-.edit,
-.password {
+.edit {
   text-align: center;
   font-size: 12px;
   cursor: pointer;
   color: #999;
-  &:hover {
+  & span:hover {
     color: #777;
+  }
+}
+.login {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 10px;
+  & input {
+    border: #bbb 1px solid;
+    padding: 5px 10px;
+    background: #eee;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    &:focus ,&:hover {
+      background: white;
+      border-color: #ccc;
+      outline: none;
+    }
+  }
+  & button {
+    border: #bbb 1px solid;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: #eee;
+    padding: 5px 10px;
+    border-left: none;
+    &:hover {
+      background: white;
+    }
   }
 }
 </style>

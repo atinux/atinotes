@@ -4,7 +4,7 @@ export default eventHandler(async (event) => {
     throw createError({ statusCode: 400, message: 'Missing slug' })
   }
 
-  const notes = useStorage('notes')
+  const notes = useKV('notes')
   let note: any = await notes.getItem(slug) || { body: '# Hello' }
   // Backward compatibility
   if (typeof note === 'string') {
