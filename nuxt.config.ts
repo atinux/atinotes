@@ -22,13 +22,5 @@ export default defineNuxtConfig({
     plugins: {
       'postcss-nested': {}
     }
-  },
-  ogImage: {
-    browserProvider: false
-  },
-  nitro: {
-    experimental: {
-      wasm: true
-    }
   }
 })
