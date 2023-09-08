@@ -107,6 +107,9 @@ async function login() {
       border: 1px #ddd solid;
       border-radius: 5px;
       background: rgb(243, 243, 243);
+      &.shiki code .line:empty {
+        display: none;
+      }
     }
     p code {
       padding: 2px 6px;

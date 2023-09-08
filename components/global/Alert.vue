@@ -17,6 +17,9 @@ defineProps({
 .alert {
   padding: 10px;
   border-radius: 5px;
+  p {
+    margin: 0;
+  }
   &.info {
     color: rgba(60, 60, 67, .7);
     border: 1px rgba(60, 60, 67, .29) solid;
