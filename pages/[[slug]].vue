@@ -12,12 +12,11 @@ if (!page.value) {
   page.value = await $fetch(`/api/pages/${slug}`)
 }
 
-// Re-parse on hydration to enable shiki highlight for code blocks
-if (page.value && process.client) {
-  onMounted(async () => {
-    page.value.parsed = await highlight(page.value.parsed)
-  })
-}
+defineOgImage({
+  component: 'Page',
+  title: page.value.parsed.data?.title || 'Missing title',
+  description: page.value.parsed.data?.description || 'Missing description'
+})
 
 async function editMode() {
   if (!loggedIn.value) {
@@ -42,7 +41,7 @@ function save() {
     method: 'PUT',
     body: page.value.body
   }).then(async ({ parsed }) => {
-    page.value.parsed = await highlight(parsed)
+    page.value.parsed = parsed
     editing.value = saving.value = false
   }).catch(err => {
     editing.value = saving.value = false
@@ -63,16 +62,15 @@ async function login() {
 <template>
   <Head>
     <Html lang="en" />
-    <Title>{{ page.parsed.title || 'Atinotes' }}</Title>
-    <Meta name="description" :content="page.parsed.description || 'A notes taking app on the edge'" />
-    <OgImageDynamic background="linear-gradient(to bottom, white, #eeeeee)" titleFontSize="100px" descriptionFontSize="50px" />
+    <Title>{{ page.parsed.data.title || 'Atinotes' }}</Title>
+    <Meta name="description" :content="page.parsed.data.description || 'A notes taking app on the edge'" />
   </Head>
   <div class="page" @dblclick="editMode">
     <form v-if="editing" class="editor-wrapper" @submit.prevent="save">
       <textarea v-model="page.body" ref="editor" @blur="save" @input="autogrow" />
       <button type="submit">{{ saving ? 'Saving' : 'Save' }}</button>
     </form>
-    <ContentRendererMarkdown v-else :value="page.parsed" class="body" />
+    <MDCRenderer v-else :body="page.parsed.body" class="body" />
   </div>
   <p class="edit" v-if="loggedIn">
     <span @click="editMode">{{ editing ? 'Editing' : 'Edit' }} this page</span> ·
@@ -108,6 +106,9 @@ async function login() {
       border: 1px #ddd solid;
       border-radius: 5px;
       background: rgb(243, 243, 243);
+      &.shiki code .line:empty {
+        display: none;
+      }
     }
     p code {
       padding: 2px 6px;

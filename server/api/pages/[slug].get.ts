@@ -1,3 +1,6 @@
+// @ts-ignore
+import { parseMarkdown } from '@nuxtjs/mdc/runtime'
+
 export default eventHandler(async (event) => {
   const { slug } = event.context.params || {}
   if (!slug) {
@@ -12,7 +15,6 @@ export default eventHandler(async (event) => {
   }
 
   if (!note.parsed) {
-    console.log('note', note)
     note.parsed = await parseMarkdown(note.body)
   }
 

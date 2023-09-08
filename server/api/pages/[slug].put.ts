@@ -1,3 +1,6 @@
+// @ts-ignore
+import { parseMarkdown } from '@nuxtjs/mdc/runtime'
+
 export default eventHandler(async (event) => {
   await requireUserSession(event)
   const { slug } = event.context.params || {}
@@ -7,7 +10,7 @@ export default eventHandler(async (event) => {
   const notes = useKV('notes')
 
   // Force being a string (CF workers always returns a Buffer)
-  const body = await readBody(event)
+  const body = await readRawBody(event)
   const parsed = await parseMarkdown(body)
 
 
