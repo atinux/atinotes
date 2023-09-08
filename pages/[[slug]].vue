@@ -14,8 +14,8 @@ if (!page.value) {
 
 defineOgImage({
   component: 'Page',
-  title: page.value.parsed.data.title || 'Missing title',
-  description: page.value.parsed.data.description || 'Missing description'
+  title: page.value.parsed.data?.title || 'Missing title',
+  description: page.value.parsed.data?.description || 'Missing description'
 })
 
 async function editMode() {
@@ -66,7 +66,6 @@ async function login() {
     <Meta name="description" :content="page.parsed.data.description || 'A notes taking app on the edge'" />
   </Head>
   <div class="page" @dblclick="editMode">
-    {{  page.parsed.data }}
     <form v-if="editing" class="editor-wrapper" @submit.prevent="save">
       <textarea v-model="page.body" ref="editor" @blur="save" @input="autogrow" />
       <button type="submit">{{ saving ? 'Saving' : 'Save' }}</button>
