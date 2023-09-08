@@ -62,8 +62,8 @@ async function login() {
 <template>
   <Head>
     <Html lang="en" />
-    <Title>{{ page.parsed.data.title || 'Atinotes' }}</Title>
-    <Meta name="description" :content="page.parsed.data.description || 'A notes taking app on the edge'" />
+    <Title>{{ page.parsed.data?.title || 'Atinotes' }}</Title>
+    <Meta name="description" :content="page.parsed.data?.description || 'A notes taking app on the edge'" />
   </Head>
   <div class="page" @dblclick="editMode">
     <form v-if="editing" class="editor-wrapper" @submit.prevent="save">
