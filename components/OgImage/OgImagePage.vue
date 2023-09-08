@@ -16,7 +16,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="w-full h-full flex flex-col justify-between items-start bg-white p-20 pt-20 pb-16 bg-gradient-to-br from-gray-50 to-gray-200">
+  <div class="w-full h-full flex flex-col justify-between items-start bg-white p-20 pt-24 pb-16 bg-gradient-to-br from-gray-50 to-gray-200">
     <div>
       <h1 class="text-8xl mb-4 text-black flex items-center">
         {{ title }}
@@ -25,6 +25,6 @@ defineProps({
         {{ description }}
       </p>
     </div>
-    <div class="font-bold text-[25px]">atinotes<span class="text-gray-600">.pages.dev</span></div>
+    <div class="font-bold text-4xl flex flex-row">atinotes<span class="text-gray-600">.pages.dev</span></div>
   </div>
 </template>
