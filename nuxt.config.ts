@@ -3,9 +3,17 @@ export default defineNuxtConfig({
   // Enable content to leverages <ContentRendererMarkdown /> component
   extends: '@nuxthq/neo',
   modules: [
-    '@nuxt/content',
+    '@nuxtjs/mdc',
     'nuxt-og-image'
   ],
+  mdc: {
+    highlight: {
+      theme: {
+        default: 'vitesse-light',
+        dark: 'material-theme-palenight',
+      }
+    }
+  },
   devtools: {
     enabled: true
   },
@@ -14,8 +22,5 @@ export default defineNuxtConfig({
     plugins: {
       'postcss-nested': {}
     }
-  },
-  ogImage: {
-    browserProvider: false
   }
 })

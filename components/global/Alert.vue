@@ -9,7 +9,7 @@ defineProps({
 
 <template>
   <div class="alert" :class="type">
-    <ContentSlot unwrap="p" :use="$slots.default" />
+    <slot/>
   </div>
 </template>
 

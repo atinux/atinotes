@@ -12,13 +12,6 @@ if (!page.value) {
   page.value = await $fetch(`/api/pages/${slug}`)
 }
 
-// Re-parse on hydration to enable shiki highlight for code blocks
-if (page.value && process.client) {
-  onMounted(async () => {
-    page.value.parsed = await highlight(page.value.parsed)
-  })
-}
-
 async function editMode() {
   if (!loggedIn.value) {
     return
@@ -42,7 +35,7 @@ function save() {
     method: 'PUT',
     body: page.value.body
   }).then(async ({ parsed }) => {
-    page.value.parsed = await highlight(parsed)
+    page.value.parsed = parsed
     editing.value = saving.value = false
   }).catch(err => {
     editing.value = saving.value = false
@@ -72,7 +65,7 @@ async function login() {
       <textarea v-model="page.body" ref="editor" @blur="save" @input="autogrow" />
       <button type="submit">{{ saving ? 'Saving' : 'Save' }}</button>
     </form>
-    <ContentRendererMarkdown v-else :value="page.parsed" class="body" />
+    <MDCRenderer v-else :body="page.parsed.body" class="body" />
   </div>
   <p class="edit" v-if="loggedIn">
     <span @click="editMode">{{ editing ? 'Editing' : 'Edit' }} this page</span> ·
