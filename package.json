@@ -11,9 +11,9 @@
     "@nuxt/devtools": "^0.8.3",
     "@nuxthq/neo": "^0.4.4",
     "@nuxtjs/mdc": "npm:@nuxtjs/mdc-edge@latest",
-    "@types/node": "^20.5.9",
+    "@types/node": "^20.6.0",
     "nuxt": "^3.7.1",
-    "nuxt-og-image": "^2.0.25",
+    "nuxt-og-image": "^2.0.26",
     "postcss-nested": "^6.0.1",
     "shikiji": "^0.6.8"
   }
