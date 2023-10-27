@@ -2,15 +2,9 @@
 const editor = ref(null)
 const editing = ref(false)
 const saving = ref(false)
-const password = ref('')
 const slug = useRoute().params.slug || 'index'
-const page = useState(`page-${slug}`)
+const { data: page } = await useFetch(`/api/pages/${slug}`)
 const { loggedIn } = useUserSession()
-
-// Fetch the page once
-if (!page.value) {
-  page.value = await $fetch(`/api/pages/${slug}`)
-}
 
 useSeoMeta({
   titleTemplate: '%s | Atinotes',

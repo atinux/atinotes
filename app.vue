@@ -29,6 +29,7 @@ async function login () {
   <Head>
     <Html lang="en" />
   </Head>
+  <NuxtLoadingIndicator />
   <UHeader>
     <template #logo>
       Atinotes
