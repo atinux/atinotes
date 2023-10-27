@@ -25,6 +25,8 @@ Copy the `.env.example` to `.env` and update the variables to your own.
 
 ## Production
 
+Note that you need a [Nuxt UI Pro license](https://ui.nuxt.com/pro) to build the application for production.
+
 Build the application for production:
 
 ```bash
@@ -46,6 +48,7 @@ Once you created your GitHub repository with this template, you can connect to i
 ```
 PASSWORD=<your-password>
 NUXT_SESSION_PASSWORD=<a-32-characters-long-password>
+NUXT_UI_PRO_LICENSE=<your-license>
 ```
 
 Then, setup the build command on CloudFlare Pages to be:

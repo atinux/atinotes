@@ -36,6 +36,7 @@ async function login () {
     </template>
     <template #right>
       <UColorModeButton />
+      <UButton icon="i-simple-icons-github" to="https://github.com/atinux/atinotes" target="_blank" color="gray" variant="ghost" />
       <UButton v-if="loggedIn" color="gray" @click="clear">
         Logout
       </UButton>
