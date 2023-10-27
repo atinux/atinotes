@@ -1,7 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  // Enable content to leverages <ContentRendererMarkdown /> component
-  extends: '@nuxthq/neo',
+  extends: ['@nuxthq/neo'],
   modules: [
     '@nuxtjs/mdc',
     'nuxt-og-image'
@@ -22,5 +21,9 @@ export default defineNuxtConfig({
     plugins: {
       'postcss-nested': {}
     }
+  },
+  // Hotfix waiting for fix in Nitro
+  experimental: {
+    appManifest: false
   }
 })
