@@ -61,6 +61,8 @@ The output directory is: `dist/`
 
 Next, you need to link a KV namespace to the deployment, the binding should be named `KV`.
 
+![KV example on CloudFlare](https://github.com/Atinux/atinotes/assets/904724/3c35a422-b646-41b9-9337-cc7de06f0d14)
+
 That's all :sparkles:
 
 ## License
