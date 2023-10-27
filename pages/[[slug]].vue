@@ -68,7 +68,7 @@ function save () {
         </template>
       </UDocsToc>
     </template>
-    <UPageHeader :title="page.parsed?.data?.title" :description="page.parsed?.data?.description" />
+    <UPageHeader v-if="!editing" :title="page.parsed?.data?.title" :description="page.parsed?.data?.description" @dblclick="editMode" />
     <UPageBody prose @dblclick="editMode">
       <UForm v-if="editing" class="editor-wrapper" @submit="save">
         <textarea ref="editor" v-model="page.body" @blur="save" @input="autogrow" />
