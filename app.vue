@@ -1,19 +1,64 @@
-<template>
-  <NuxtPage />
-</template>
+<script setup>
+const { loggedIn, fetch: refreshSession, clear } = useUserSession()
+const toast = useToast()
+const loginModal = ref(false)
+const logging = ref(false)
+const password = ref('')
 
-<style>
-* {
-  box-sizing: border-box;
+async function login () {
+  if (!password.value) return
+  logging.value = true
+  await $fetch('/api/login', {
+    method: 'POST',
+    body: { password: password.value }
+  })
+    .then(async () => {
+      await refreshSession()
+      loginModal.value = false
+    })
+    .catch(() => toast.add({
+      title: 'Wrong password',
+      color: 'red'
+    }))
+  password.value = ''
+  logging.value = false
 }
-body {
-  margin: 0;
-  background-color: #eee;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-@media (min-width: 600px) {
-  body {
-    padding-top: 20px;
-  }
-}
-</style>
+</script>
+
+<template>
+  <Head>
+    <Html lang="en" />
+  </Head>
+  <UHeader>
+    <template #logo>
+      Atinotes
+    </template>
+    <template #right>
+      <UColorModeButton />
+      <UButton v-if="loggedIn" color="gray" @click="clear">
+        Logout
+      </UButton>
+      <UButton v-else color="gray" @click="loginModal = true">
+        Login
+      </UButton>
+    </template>
+  </UHeader>
+  <UMain>
+    <UContainer>
+      <NuxtPage />
+    </UContainer>
+  </UMain>
+  <UModal v-model="loginModal">
+    <UCard>
+      <UForm class="space-y-2" @submit="login">
+        <UFormGroup label="Password">
+          <UInput v-model="password" type="password" icon="i-heroicons-lock-closed" />
+        </UFormGroup>
+        <UButton type="submit" :disabled="password.length < 1" :loading="logging">
+          Login
+        </UButton>
+      </UForm>
+    </UCard>
+  </UModal>
+  <UNotifications />
+</template>

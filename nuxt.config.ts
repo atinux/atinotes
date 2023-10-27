@@ -1,26 +1,27 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  extends: ['@nuxthq/neo'],
+  extends: [
+    '@nuxt/ui-pro',
+    '@nuxthq/neo'
+  ],
   modules: [
-    '@nuxtjs/mdc',
+    '@nuxt/ui',
+    '@nuxt/content',
     'nuxt-og-image'
   ],
+  ui: {
+    icons: ['simple-icons']
+  },
   mdc: {
     highlight: {
       theme: {
         default: 'vitesse-light',
-        dark: 'material-theme-palenight',
+        dark: 'material-theme-palenight'
       }
     }
   },
   devtools: {
     enabled: true
-  },
-  // Enable CSS nesting: https://github.com/postcss/postcss-nested
-  postcss: {
-    plugins: {
-      'postcss-nested': {}
-    }
   },
   // Hotfix waiting for fix in Nitro
   experimental: {

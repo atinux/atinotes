@@ -1,16 +1,16 @@
 <script lang="ts" setup>
 defineOptions({
-  inheritAttrs: false,
+  inheritAttrs: false
 })
 
 defineProps({
   title: {
     type: String,
-    required: true,
+    required: true
   },
   description: {
     type: String,
-    required: true,
+    required: true
   }
 })
 </script>
@@ -25,7 +25,9 @@ defineProps({
         {{ description }}
       </p>
     </div>
-    <div class="font-bold text-4xl flex flex-row">atinotes<span class="text-gray-600">.pages.dev</span></div>
+    <div class="font-bold text-4xl flex flex-row">
+      atinotes<span class="text-gray-600">.pages.dev</span>
+    </div>
   </div>
 </template>
 
