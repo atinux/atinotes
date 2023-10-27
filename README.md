@@ -2,7 +2,7 @@
 
 Read more on https://atinotes.pages.dev
 
-https://user-images.githubusercontent.com/904724/217890680-279977de-491c-4af0-bd92-3576a4770270.mp4
+[![Nuxt UI Pro](https://img.shields.io/badge/Made%20with-Nuxt%20UI%20Pro-00DC82?logo=nuxt.js&labelColor=020420)](https://ui.nuxt.com/pro)
 
 ## Setup
 
