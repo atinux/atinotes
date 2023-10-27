@@ -5,6 +5,13 @@ const loginModal = ref(false)
 const logging = ref(false)
 const password = ref('')
 
+useSeoMeta({
+  ogSiteName: 'Atinotes',
+  ogType: 'website',
+  twitterCard: 'summary_large_image',
+  twitterSite: 'atinux'
+})
+
 async function login () {
   if (!password.value) return
   logging.value = true
