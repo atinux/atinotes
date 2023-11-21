@@ -2,12 +2,12 @@
 export default defineNuxtConfig({
   extends: [
     '@nuxt/ui-pro',
-    '@nuxthq/neo'
   ],
   modules: [
     '@nuxt/ui',
     '@nuxt/content',
-    'nuxt-og-image'
+    'nuxt-og-image',
+    'nuxt-auth-utils'
   ],
   ui: {
     icons: ['simple-icons']
@@ -22,9 +22,5 @@ export default defineNuxtConfig({
   },
   devtools: {
     enabled: true
-  },
-  // Hotfix waiting for fix in Nitro
-  experimental: {
-    appManifest: false
   }
 })
