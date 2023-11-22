@@ -1157,7 +1157,7 @@ packages:
       micromark: 4.0.0
       micromark-util-sanitize-uri: 2.0.0
       micromark-util-types: 2.0.0
-      minisearch: 6.2.0
+      minisearch: 6.3.0
       ohash: 1.1.3
       pathe: 1.1.1
       scule: 1.1.0
@@ -1314,7 +1314,7 @@ packages:
       semver: 7.5.4
       simple-git: 3.21.0
       sirv: 2.0.3
-      unimport: 3.5.0(rollup@4.5.1)
+      unimport: 3.6.0(rollup@4.5.1)
       vite: 4.5.0(@types/node@20.9.4)
       vite-plugin-inspect: 0.7.42(@nuxt/kit@3.8.2)(vite@4.5.0)
       vite-plugin-vue-inspector: 4.0.0(vite@4.5.0)
@@ -1376,7 +1376,7 @@ packages:
       semver: 7.5.4
       ufo: 1.3.2
       unctx: 2.3.1
-      unimport: 3.5.0(rollup@4.5.1)
+      unimport: 3.6.0(rollup@4.5.1)
       untyped: 1.4.0
     transitivePeerDependencies:
       - rollup
@@ -1410,7 +1410,7 @@ packages:
       scule: 1.1.0
       std-env: 3.5.0
       ufo: 1.3.2
-      unimport: 3.5.0(rollup@4.5.1)
+      unimport: 3.6.0(rollup@4.5.1)
       untyped: 1.4.0
     transitivePeerDependencies:
       - rollup
@@ -5000,7 +5000,7 @@ packages:
       radix3: 1.1.0
       ufo: 1.3.2
       uncrypto: 0.1.3
-      unenv: 1.7.4
+      unenv: 1.8.0
 
   /has-flag@3.0.0:
     resolution: {integrity: sha512-sKJf1+ceQBr4SMkvQnBDNDtf4TXpVhVGateu0t918bl30FnbE2m4vNLX+VWe/dpjlb+HugGYzW7uQXH98HPEYw==}
@@ -6741,8 +6741,8 @@ packages:
     resolution: {integrity: sha512-jYofLM5Dam9279rdkWzqHozUo4ybjdZmCsDHePy5V/PbBcVMiSZR97gmAy45aqi8CK1lG2ECd356FU86avfwUQ==}
     engines: {node: '>=16 || 14 >=14.17'}
 
-  /minisearch@6.2.0:
-    resolution: {integrity: sha512-BECkorDF1TY2rGKt9XHdSeP9TP29yUbrAaCh/C03wpyf1vx3uYcP/+8XlMcpTkgoU0rBVnHMAOaP83Rc9Tm+TQ==}
+  /minisearch@6.3.0:
+    resolution: {integrity: sha512-ihFnidEeU8iXzcVHy74dhkxh/dn8Dc08ERl0xwoMMGqp4+LvRSCgicb+zGqWthVokQKvCSxITlh3P08OzdTYCQ==}
     dev: false
 
   /minizlib@2.1.2:
@@ -6891,8 +6891,8 @@ packages:
       ufo: 1.3.2
       uncrypto: 0.1.3
       unctx: 2.3.1
-      unenv: 1.7.4
-      unimport: 3.5.0(rollup@4.5.1)
+      unenv: 1.8.0
+      unimport: 3.6.0(rollup@4.5.1)
       unstorage: 1.10.1
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -7130,8 +7130,8 @@ packages:
       globby: 13.2.2
       image-size: 1.0.2
       launch-editor: 2.6.1
-      nuxt-site-config: 1.6.3(@nuxt/devtools@1.0.3)(@vue/compiler-core@3.3.8)(nuxt@3.8.2)(postcss@8.4.31)(vite@4.5.0)(vue@3.3.8)(webpack@5.89.0)
-      nuxt-site-config-kit: 1.6.3(vue@3.3.8)
+      nuxt-site-config: 1.6.4(@nuxt/devtools@1.0.3)(@vue/compiler-core@3.3.8)(nuxt@3.8.2)(postcss@8.4.31)(vite@4.5.0)(vue@3.3.8)(webpack@5.89.0)
+      nuxt-site-config-kit: 1.6.4(vue@3.3.8)
       nypm: 0.3.3
       ofetch: 1.3.3
       ohash: 1.1.3
@@ -7176,13 +7176,13 @@ packages:
       - webpack
     dev: false
 
-  /nuxt-site-config-kit@1.6.3(vue@3.3.8):
-    resolution: {integrity: sha512-Qf8S192UtNEP0rGc8Enz34uPkW1wrpmfhGr4zlFcHOcyjNNpkq84s4ENO/SMFLrwEQ1ZiISr1O7KV4kYwZcx5Q==}
+  /nuxt-site-config-kit@1.6.4(vue@3.3.8):
+    resolution: {integrity: sha512-tsMdDtsW7TmvW5K3e6PEObb3bDhwwDtrT0ruaE/3ZrtnjBVNmOaCdCsRtVdLnJP7leCJ56sasvKMLmxievDdVw==}
     dependencies:
       '@nuxt/kit': 3.8.2
       '@nuxt/schema': 3.8.2
       pkg-types: 1.0.3
-      site-config-stack: 1.6.3(vue@3.3.8)
+      site-config-stack: 1.6.4(vue@3.3.8)
       std-env: 3.5.0
       ufo: 1.3.2
     transitivePeerDependencies:
@@ -7191,18 +7191,18 @@ packages:
       - vue
     dev: false
 
-  /nuxt-site-config@1.6.3(@nuxt/devtools@1.0.3)(@vue/compiler-core@3.3.8)(nuxt@3.8.2)(postcss@8.4.31)(vite@4.5.0)(vue@3.3.8)(webpack@5.89.0):
-    resolution: {integrity: sha512-+d5bxY01kDbqId9qJu+tDwoXAA6yxLwFj63Wp0iQhB7xVmMEoFZ7SI0FlH+6O8n9oNg48JoVEWAmOobkVCn/Dg==}
+  /nuxt-site-config@1.6.4(@nuxt/devtools@1.0.3)(@vue/compiler-core@3.3.8)(nuxt@3.8.2)(postcss@8.4.31)(vite@4.5.0)(vue@3.3.8)(webpack@5.89.0):
+    resolution: {integrity: sha512-hM52sH5V/8Ka1CXtThJA6eITMOEJugfJSH3hYinCYFqqCV9poir00bWIv9e19a+LvdN3Kopr8jRnKb/dtOt5WA==}
     dependencies:
       '@nuxt/devtools-kit': 1.0.3(nuxt@3.8.2)(vite@4.5.0)
       '@nuxt/devtools-ui-kit': 1.0.3(@nuxt/devtools@1.0.3)(@vue/compiler-core@3.3.8)(nuxt@3.8.2)(postcss@8.4.31)(vite@4.5.0)(vue@3.3.8)(webpack@5.89.0)
       '@nuxt/kit': 3.8.2
       '@nuxt/schema': 3.8.2
-      nuxt-site-config-kit: 1.6.3(vue@3.3.8)
+      nuxt-site-config-kit: 1.6.4(vue@3.3.8)
       pathe: 1.1.1
       shiki-es: 0.14.0
       sirv: 2.0.3
-      site-config-stack: 1.6.3(vue@3.3.8)
+      site-config-stack: 1.6.4(vue@3.3.8)
       ufo: 1.3.2
     transitivePeerDependencies:
       - '@nuxt/devtools'
@@ -7289,8 +7289,8 @@ packages:
       ultrahtml: 1.5.2
       uncrypto: 0.1.3
       unctx: 2.3.1
-      unenv: 1.7.4
-      unimport: 3.5.0(rollup@4.5.1)
+      unenv: 1.8.0
+      unimport: 3.6.0(rollup@4.5.1)
       unplugin: 1.5.1
       unplugin-vue-router: 0.7.0(vue-router@4.2.5)(vue@3.3.8)
       untyped: 1.4.0
@@ -8629,8 +8629,8 @@ packages:
   /sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
-  /site-config-stack@1.6.3(vue@3.3.8):
-    resolution: {integrity: sha512-HwAoHzWbzoOw9mJZ7RIwZxeC69ie5PgsTROXP4vWM4JPPAwRWsrJ+qQqZbB9FDdfO/mEv4Rhkqh+9fssAbjTFA==}
+  /site-config-stack@1.6.4(vue@3.3.8):
+    resolution: {integrity: sha512-0b/aLMQbXQNPeRU3qM3zAjyWBHqRtTz481SOeeSFJWlKrbRFy72Mj9bWEW35QvYB2ZMdbt5cDAjiu6dtXg5nFQ==}
     peerDependencies:
       vue: ^3
     dependencies:
@@ -9229,8 +9229,8 @@ packages:
     dependencies:
       '@fastify/busboy': 2.1.0
 
-  /unenv@1.7.4:
-    resolution: {integrity: sha512-fjYsXYi30It0YCQYqLOcT6fHfMXsBr2hw9XC7ycf8rTG7Xxpe3ZssiqUnD0khrjiZEmkBXWLwm42yCSCH46fMw==}
+  /unenv@1.8.0:
+    resolution: {integrity: sha512-uIGbdCWZfhRRmyKj1UioCepQ0jpq638j/Cf0xFTn4zD1nGJ2lSdzYHLzfdXN791oo/0juUiSWW1fBklXMTsuqg==}
     dependencies:
       consola: 3.2.3
       defu: 6.1.3
@@ -9286,8 +9286,8 @@ packages:
       vfile: 6.0.1
     dev: false
 
-  /unimport@3.5.0(rollup@4.5.1):
-    resolution: {integrity: sha512-0Ei1iTeSYxs7oxxUf79/KaBc2dPjZxe7qdVpw7yIz5YcdTZjmBYO6ToLDW+fX9QOHiueZ3xtwb5Z/wqaSfXx6A==}
+  /unimport@3.6.0(rollup@4.5.1):
+    resolution: {integrity: sha512-yXW3Z30yk1vX8fxO8uHlq9wY9K+L56LHp4Hlbv8i7tW+NENSOv8AaFJUPtOQchxlT7/JBAzCtkrBtcVjKIr1VQ==}
     dependencies:
       '@rollup/pluginutils': 5.0.5(rollup@4.5.1)
       escape-string-regexp: 5.0.0
