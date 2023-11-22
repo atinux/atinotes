@@ -8,11 +8,7 @@ export default eventHandler(async (event) => {
   }
 
   const notes = useKV('notes')
-  let note: any = await notes.getItem(slug) || { body: '# Hello' }
-  // Backward compatibility
-  if (typeof note === 'string') {
-    note = { body: note }
-  }
+  const note: any = await notes.getItem(slug) || { body: '# Hello' }
 
   if (!note.parsed) {
     note.parsed = await parseMarkdown(note.body)
