@@ -20,6 +20,11 @@ export default defineNuxtConfig({
       }
     }
   },
+  nitro: {
+    experimental: {
+      wasm: true
+    }
+  },
   devtools: {
     enabled: true
   }
