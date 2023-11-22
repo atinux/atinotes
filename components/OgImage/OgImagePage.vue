@@ -26,7 +26,7 @@ defineProps({
       </p>
     </div>
     <div class="font-bold text-4xl flex flex-row">
-      atinotes<span class="text-gray-600">.pages.dev</span>
+      notes<span class="text-gray-600">.atinux.com</span>
     </div>
   </div>
 </template>
