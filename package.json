@@ -29,5 +29,8 @@
     "eslint": "^8.55.0",
     "typescript": "^5.3.2",
     "vue-tsc": "^1.8.24"
+  },
+  "resolutions": {
+    "nitropack": "2.8.0"
   }
 }

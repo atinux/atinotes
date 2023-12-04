@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  nitropack: 2.8.0
+
 dependencies:
   '@iconify-json/simple-icons':
     specifier: ^1.1.82
@@ -1300,7 +1303,7 @@ packages:
       launch-editor: 2.6.1
       local-pkg: 0.5.0
       magicast: 0.3.2
-      nitropack: 2.8.1
+      nitropack: 2.8.0
       nuxt: 3.8.2(@types/node@20.10.3)(eslint@8.55.0)(typescript@5.3.2)(vite@4.5.1)(vue-tsc@1.8.24)
       nypm: 0.3.3
       ofetch: 1.3.3
@@ -6719,8 +6722,8 @@ packages:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: false
 
-  /nitropack@2.8.1:
-    resolution: {integrity: sha512-pODv2kEEzZSDQR+1UMXbGyNgMedUDq/qUomtiAnQKQvLy52VGlecXO1xDfH3i0kP1yKEcKTnWsx1TAF5gHM7xQ==}
+  /nitropack@2.8.0:
+    resolution: {integrity: sha512-dkCILTSpM1Sd3oaagV21ifPxPOSCvFZjfdDMOa6SrxpcntitHkD1QgvjdbqEfnwGNPGbp7Z42qNhzNljDVeKMQ==}
     engines: {node: ^16.11.0 || >=17.0.0}
     hasBin: true
     peerDependencies:
@@ -6754,7 +6757,6 @@ packages:
       dot-prop: 8.0.2
       esbuild: 0.19.8
       escape-string-regexp: 5.0.0
-      estree-walker: 3.0.3
       etag: 1.8.1
       fs-extra: 11.2.0
       globby: 14.0.0
@@ -7172,7 +7174,7 @@ packages:
       knitwork: 1.0.0
       magic-string: 0.30.5
       mlly: 1.4.2
-      nitropack: 2.8.1
+      nitropack: 2.8.0
       nuxi: 3.10.0
       nypm: 0.3.3
       ofetch: 1.3.3
