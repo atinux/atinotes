@@ -23,6 +23,11 @@ export default defineNuxtConfig({
   nitro: {
     experimental: {
       wasm: true
+    },
+    rollupConfig: {
+      output: {
+        inlineDynamicImports: true
+      }
     }
   },
   devtools: {
