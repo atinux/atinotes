@@ -7,8 +7,6 @@ import cloudflareKVBindingDriver from 'unstorage/drivers/cloudflare-kv-binding'
 let _kv: Storage
 
 export function useKV (prefix?: string) {
-  const config = useRuntimeConfig().kv
-
   if (!_kv) {
     if (process.env.KV) {
       _kv = createStorage({
