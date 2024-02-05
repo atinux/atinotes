@@ -1,0 +1,302 @@
+diff --git a/dist/module.d.mts b/dist/module.d.mts
+index 022b7757acf851c9710225347047b58d3056b7f8..be9f1bd8d5ce7bc6c2476b78b0473f317984a412 100644
+--- a/dist/module.d.mts
++++ b/dist/module.d.mts
+@@ -1,7 +1,7 @@
+ import * as _nuxt_schema from '@nuxt/schema';
+ import { ListenOptions } from 'listhen';
+ import { Options } from 'minisearch';
+-import { BuiltinTheme, BuiltinLanguage } from 'shikiji';
++import { BuiltinTheme, BuiltinLanguage, LanguageRegistration, ThemeRegistrationAny } from 'shiki';
+ 
+ interface ParsedContentInternalMeta {
+     /**
+@@ -444,8 +444,24 @@ interface ModuleOptions {
+         };
+         /**
+          * Preloaded languages that will be available for highlighting code blocks.
++         *
++         * @deprecated Use `langs` instead
++         */
++        preload?: (BuiltinLanguage | LanguageRegistration)[];
++        /**
++         * Languages to be bundled loaded by Shiki
++         *
++         * All languages used has to be included in this list at build time, to create granular bundles.
++         *
++         * Unlike the `preload` option, when this option is provided, it will override the default languages.
++         *
++         * @default ['js','ts','vue','css','html','vue','shell']
++         */
++        langs?: (BuiltinLanguage | LanguageRegistration)[];
++        /**
++         * Additional themes to be bundled loaded by Shiki
+          */
+-        preload?: BuiltinLanguage[];
++        themes?: (BuiltinTheme | ThemeRegistrationAny)[];
+     };
+     /**
+      * Options for yaml parser.
+diff --git a/dist/module.d.ts b/dist/module.d.ts
+index 022b7757acf851c9710225347047b58d3056b7f8..be9f1bd8d5ce7bc6c2476b78b0473f317984a412 100644
+--- a/dist/module.d.ts
++++ b/dist/module.d.ts
+@@ -1,7 +1,7 @@
+ import * as _nuxt_schema from '@nuxt/schema';
+ import { ListenOptions } from 'listhen';
+ import { Options } from 'minisearch';
+-import { BuiltinTheme, BuiltinLanguage } from 'shikiji';
++import { BuiltinTheme, BuiltinLanguage, LanguageRegistration, ThemeRegistrationAny } from 'shiki';
+ 
+ interface ParsedContentInternalMeta {
+     /**
+@@ -444,8 +444,24 @@ interface ModuleOptions {
+         };
+         /**
+          * Preloaded languages that will be available for highlighting code blocks.
++         *
++         * @deprecated Use `langs` instead
++         */
++        preload?: (BuiltinLanguage | LanguageRegistration)[];
++        /**
++         * Languages to be bundled loaded by Shiki
++         *
++         * All languages used has to be included in this list at build time, to create granular bundles.
++         *
++         * Unlike the `preload` option, when this option is provided, it will override the default languages.
++         *
++         * @default ['js','ts','vue','css','html','vue','shell']
++         */
++        langs?: (BuiltinLanguage | LanguageRegistration)[];
++        /**
++         * Additional themes to be bundled loaded by Shiki
+          */
+-        preload?: BuiltinLanguage[];
++        themes?: (BuiltinTheme | ThemeRegistrationAny)[];
+     };
+     /**
+      * Options for yaml parser.
+diff --git a/dist/module.mjs b/dist/module.mjs
+index 9d1a87f00aec21a71df98d3a1a2ec19e3d0e1618..37b15552baebe4c1f36ad2bb6d1a29e118c9e961 100644
+--- a/dist/module.mjs
++++ b/dist/module.mjs
+@@ -228,7 +228,7 @@ const module = defineNuxtModule({
+         enforce: "pre",
+         transform(code) {
+           if (code.includes("ContentSlot")) {
+-            code = code.replace(/<ContentSlot(\s)+([.]*)(:use=['"](\$slots.)?([a-zA-Z0-9_-]*)['"]|use=['"]([a-zA-Z0-9_-]*)['"])/g, '<MDCSlot$1$2 name="$5"');
++            code = code.replace(/<ContentSlot(\s)+([^/>]*)(:use=['"](\$slots.)?([a-zA-Z0-9_-]*)['"])/g, '<MDCSlot$1$2name="$5"');
+             code = code.replace(/<\/ContentSlot>/g, "</MDCSlot>");
+             code = code.replace(/<ContentSlot/g, "<MDCSlot");
+             code = code.replace(/(['"])ContentSlot['"]/g, "$1MDCSlot$1");
+@@ -588,7 +588,8 @@ const module = defineNuxtModule({
+         tailwindConfig.content.files = tailwindConfig.content.files ?? [];
+         tailwindConfig.content.files.push(contentPath);
+       }
+-      let cssPath = nuxt.options.tailwindcss?.cssPath ? await resolvePath(nuxt.options.tailwindcss?.cssPath, { extensions: [".css", ".sass", ".scss", ".less", ".styl"] }) : join(nuxt.options.dir.assets, "css/tailwind.css");
++      const [tailwindCssPath] = Array.isArray(nuxt.options.tailwindcss?.cssPath) ? nuxt.options.tailwindcss?.cssPath : [nuxt.options.tailwindcss?.cssPath];
++      let cssPath = tailwindCssPath ? await resolvePath(tailwindCssPath, { extensions: [".css", ".sass", ".scss", ".less", ".styl"] }) : join(nuxt.options.dir.assets, "css/tailwind.css");
+       if (!fs.existsSync(cssPath)) {
+         cssPath = await resolvePath("tailwindcss/tailwind.css");
+       }
+diff --git a/dist/runtime/composables/useUnwrap.d.ts b/dist/runtime/composables/useUnwrap.d.ts
+index f1911eb2659967755232f8822d2360d06db2bc9a..8d0da2762f2e2232ad89370ba8d172c3134dfb7d 100644
+--- a/dist/runtime/composables/useUnwrap.d.ts
++++ b/dist/runtime/composables/useUnwrap.d.ts
+@@ -1,5 +1,4 @@
+-import { unwrap, flatUnwrap } from '@nuxtjs/mdc/dist/runtime/utils/node';
+ export declare const useUnwrap: () => {
+-    unwrap: typeof unwrap;
+-    flatUnwrap: typeof flatUnwrap;
++    unwrap: any;
++    flatUnwrap: any;
+ };
+diff --git a/dist/runtime/query/match/pipeline-legacy.js b/dist/runtime/query/match/pipeline-legacy.js
+index 61ca068ed9b8d452a9f335ad1416712507ac3a5e..03aa71bf2d2424c37a77c889efe2cfbad44e786f 100644
+--- a/dist/runtime/query/match/pipeline-legacy.js
++++ b/dist/runtime/query/match/pipeline-legacy.js
+@@ -2,6 +2,9 @@ import { createPipelineFetcher } from "./pipeline.js";
+ export function createPipelineFetcherLegacy(getContentsList) {
+   const _pipelineFetcher = createPipelineFetcher(getContentsList);
+   return async (query) => {
++    if (query.params().first) {
++      query.withDirConfig();
++    }
+     const params = query.params();
+     const result = await _pipelineFetcher(query);
+     if (params.surround) {
+diff --git a/dist/runtime/server/navigation.js b/dist/runtime/server/navigation.js
+index 24ac97b77f269f324066832bd39d46bd9c3c71f4..9321e805f26488092d6279845d425ebbe15a6f70 100644
+--- a/dist/runtime/server/navigation.js
++++ b/dist/runtime/server/navigation.js
+@@ -66,6 +66,9 @@ export function createNav(contents, configs) {
+ }
+ const collator = new Intl.Collator(void 0, { numeric: true, sensitivity: "base" });
+ function sortAndClear(nav) {
++  nav.forEach((item) => {
++    item._file = item._file.split(".").slice(0, -1).join(".");
++  });
+   const sorted = nav.sort((a, b) => collator.compare(a._file, b._file));
+   for (const item of sorted) {
+     if (item.children?.length) {
+diff --git a/dist/runtime/server/storage.d.ts b/dist/runtime/server/storage.d.ts
+index 9b6de1879d44f2764cbc3fbe17fba6e9b41e82fc..f2fdba161a43cb58777858dd9a206f4642e3a3cd 100644
+--- a/dist/runtime/server/storage.d.ts
++++ b/dist/runtime/server/storage.d.ts
+@@ -21,7 +21,7 @@ export declare const cacheStorage: Storage;
+ export declare const cacheParsedStorage: Storage;
+ export declare const getContentsIds: (event: H3Event, prefix?: string) => Promise<string[]>;
+ export declare function chunksFromArray<T>(arr: T[], n: number): Generator<T[], void>;
+-export declare const getContentsList: (event: H3Event, prefix?: string) => Promise<ParsedContent[]>;
++export declare const getContentsList: (event: H3Event, prefix?: string) => any;
+ export declare const getContent: (event: H3Event, id: string) => Promise<ParsedContent>;
+ /**
+  * Parse content file using registered plugins
+diff --git a/dist/runtime/server/storage.js b/dist/runtime/server/storage.js
+index bf51731125f6c05cb687071d573fe5d9d47ce779..4364d28365189d92d9a00fe7c977fbf4229f0268 100644
+--- a/dist/runtime/server/storage.js
++++ b/dist/runtime/server/storage.js
+@@ -14,6 +14,7 @@ export const sourceStorage = prefixStorage(useStorage(), "content:source");
+ export const cacheStorage = prefixStorage(useStorage(), "cache:content");
+ export const cacheParsedStorage = prefixStorage(useStorage(), "cache:content:parsed");
+ const isProduction = process.env.NODE_ENV === "production";
++const isPrerendering = import.meta.prerender;
+ const contentConfig = useRuntimeConfig().content;
+ const isIgnored = makeIgnored(contentConfig.ignores);
+ const invalidKeyCharacters = `'"?#/`.split("");
+@@ -61,16 +62,39 @@ export function* chunksFromArray(arr, n) {
+     yield arr.slice(i, i + n);
+   }
+ }
+-export const getContentsList = async (event, prefix) => {
+-  const keys = await getContentsIds(event, prefix);
+-  const keyChunks = [...chunksFromArray(keys, 10)];
+-  const contents = [];
+-  for (const chunk of keyChunks) {
+-    const result = await Promise.all(chunk.map((key) => getContent(event, key)));
+-    contents.push(...result);
+-  }
+-  return contents;
+-};
++export const getContentsList = /* @__PURE__ */ (() => {
++  let cachedContents = [];
++  let pendingContentsListPromise = null;
++  const _getContentsList = async (event, prefix) => {
++    const keys = await getContentsIds(event, prefix);
++    const keyChunks = [...chunksFromArray(keys, 10)];
++    const contents = [];
++    for (const chunk of keyChunks) {
++      const result = await Promise.all(chunk.map((key) => getContent(event, key)));
++      contents.push(...result);
++    }
++    return contents;
++  };
++  return (event, prefix) => {
++    if (event.context.__contentList) {
++      return event.context.__contentList;
++    }
++    if (isPrerendering && cachedContents.length) {
++      return cachedContents;
++    }
++    if (!pendingContentsListPromise) {
++      pendingContentsListPromise = _getContentsList(event, prefix);
++      pendingContentsListPromise.then((result) => {
++        if (isPrerendering) {
++          cachedContents = result;
++        }
++        event.context.__contentList = result;
++        pendingContentsListPromise = null;
++      });
++    }
++    return pendingContentsListPromise;
++  };
++})();
+ const pendingPromises = {};
+ export const getContent = async (event, id) => {
+   const contentId = id;
+diff --git a/dist/runtime/transformers/markdown.js b/dist/runtime/transformers/markdown.js
+index 908442f09eccf252610dd99b369e8415a27f5d77..04f67d2050be896c275c648f3403bb5ca73c720e 100644
+--- a/dist/runtime/transformers/markdown.js
++++ b/dist/runtime/transformers/markdown.js
+@@ -11,7 +11,8 @@ export default defineTransformer({
+     config.rehypePlugins = await importPlugins(config.rehypePlugins);
+     config.remarkPlugins = await importPlugins(config.remarkPlugins);
+     const parsed = await parseMarkdown(content, {
+-      highlight: options.highlight,
++      // Pass only when it's an function. String values are handled by `@nuxtjs/mdc`
++      highlight: typeof options.highlight !== "function" ? void 0 : options.highlight,
+       remark: {
+         plugins: config.remarkPlugins
+       },
+diff --git a/package.json b/package.json
+index ee75e37406be770f910d9c97e462d9517c4c85d2..4cbf1ea6b5d5c4840b299590927241b539f692d3 100644
+--- a/package.json
++++ b/package.json
+@@ -46,8 +46,8 @@
+     "test:unit": "nuxi prepare test/fixtures/basic && nuxi prepare test/fixtures/document-driven && vitest run"
+   },
+   "dependencies": {
+-    "@nuxt/kit": "^3.9.3",
+-    "@nuxtjs/mdc": "^0.3.2",
++    "@nuxt/kit": "^3.10.0",
++    "@nuxtjs/mdc": "^0.4.0",
+     "@vueuse/core": "^10.7.2",
+     "@vueuse/head": "^2.0.0",
+     "@vueuse/nuxt": "^10.7.2",
+@@ -56,7 +56,7 @@
+     "destr": "^2.0.2",
+     "json5": "^2.2.3",
+     "knitwork": "^1.0.0",
+-    "listhen": "^1.5.6",
++    "listhen": "^1.6.0",
+     "mdast-util-to-string": "^4.0.0",
+     "mdurl": "^2.0.0",
+     "micromark-util-sanitize-uri": "^2.0.0",
+@@ -66,7 +66,7 @@
+     "ohash": "^1.1.3",
+     "pathe": "^1.1.2",
+     "scule": "^1.2.0",
+-    "shikiji": "^0.9.19",
++    "shiki": "^1.0.0-beta.5",
+     "slugify": "^1.6.6",
+     "socket.io-client": "^4.7.4",
+     "ufo": "^1.3.2",
+@@ -76,28 +76,28 @@
+   },
+   "devDependencies": {
+     "@nuxt/module-builder": "^0.5.5",
+-    "@nuxt/schema": "3.9.3",
+-    "@nuxt/test-utils": "3.10.0",
+-    "@nuxthq/studio": "^1.0.9",
++    "@nuxt/schema": "3.10.0",
++    "@nuxt/test-utils": "3.11.0",
++    "@nuxthq/studio": "^1.0.10",
+     "@nuxtjs/eslint-config-typescript": "latest",
+-    "@nuxtjs/tailwindcss": "^6.10.4",
++    "@nuxtjs/tailwindcss": "^6.11.2",
+     "@types/ws": "^8.5.10",
+     "c8": "^9.1.0",
+     "csvtojson": "^2.0.10",
+     "eslint": "^8.56.0",
+     "globby": "^14.0.0",
+-    "husky": "^8.0.3",
++    "husky": "^9.0.10",
+     "jiti": "^1.21.0",
+-    "lint-staged": "^15.2.0",
+-    "nuxt": "3.9.3",
++    "lint-staged": "^15.2.1",
++    "nuxt": "3.10.0",
+     "rehype-figure": "^1.0.1",
+     "rehype-wrap-all": "^1.1.0",
+-    "release-it": "^17.0.1",
++    "release-it": "^17.0.3",
+     "remark-oembed": "^1.2.2",
+-    "vitest": "^1.2.1",
++    "vitest": "^1.2.2",
+     "vue-docgen-web-types": "^0.1.8"
+   },
+-  "packageManager": "pnpm@8.14.1",
++  "packageManager": "pnpm@8.15.1",
+   "pnpm": {
+     "peerDependencyRules": {
+       "allowedVersions": {
