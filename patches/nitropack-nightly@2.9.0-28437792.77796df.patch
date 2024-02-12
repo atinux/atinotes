@@ -1,0 +1,13 @@
+diff --git a/dist/nitro.mjs b/dist/nitro.mjs
+index 4d39a1a214e468b2c0d75582eac63dd904d35366..9589d6494b6f2a9ae03450c05fa9c7a535d0eb0a 100644
+--- a/dist/nitro.mjs
++++ b/dist/nitro.mjs
+@@ -1666,7 +1666,7 @@ const getRollupConfig = (nitro) => {
+       }
+     }
+     const routeHandler = nitro.options.handlers.find((h) => id.startsWith(h.handler)) || nitro.scannedHandlers.find((h) => id.startsWith(h.handler));
+-    if (routeHandler) {
++    if (routeHandler?.route) {
+       const path = routeHandler.route.replace(/:([^/]+)/g, "_$1").replace(/\/[^/]+$/g, "") || "/";
+       return `chunks/routes${path}/[name].mjs`;
+     }

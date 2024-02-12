@@ -8,3 +8,5 @@ node_modules
 dist
 .data
 data
+.wrangler
+wrangler.toml
