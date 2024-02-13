@@ -20,14 +20,11 @@ export default defineNuxtConfig({
       }
     }
   },
-  // nitro: {
-  //   wasm: {
-  //     esmImport: true
-  //   },
-  //   experimental: {
-  //     wasm: true
-  //   }
-  // },
+  nitro: {
+    experimental: {
+      wasm: true
+    }
+  },
   devtools: {
     enabled: true
   }
