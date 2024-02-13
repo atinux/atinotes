@@ -33,10 +33,5 @@
   },
   "resolutions": {
     "nitropack": "npm:nitropack-nightly@latest"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "nitropack-nightly@2.9.0-28437792.77796df": "patches/nitropack-nightly@2.9.0-28437792.77796df.patch"
-    }
   }
 }

@@ -21,9 +21,6 @@ export default defineNuxtConfig({
     }
   },
   nitro: {
-    wasm: {
-      esmImport: true
-    },
     experimental: {
       wasm: true
     }
