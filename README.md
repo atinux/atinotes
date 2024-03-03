@@ -41,12 +41,38 @@ npm run preview
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
-## Deployment on Cloudflare Pages
+## Deploy
+
+### With NuxtHub
+
+You can deploy this template directy on your CloudFlare account with zero configuration with the [NuxtHub Console](https://console.hub.nuxt.com) and get a free `.nuxt.dev` domain.
+
+```bash
+npx nuxthub deploy
+```
+
+Once deployed, you can manage your project by running:
+
+```bash
+npx nuxthub manage
+```
+
+Then add the following environement variables:
+
+```
+ADMIN_PASSWORD=<your-password>
+NUXT_SESSION_PASSWORD=<a-32-characters-long-password>
+NUXT_UI_PRO_LICENSE=<your-license>
+```
+
+Once saved, the deployment will be updated with the new environment variables.
+
+### Manually on Cloudflare Pages
 
 Once you created your GitHub repository with this template, you can connect to it, then add those env variables:
 
 ```
-PASSWORD=<your-password>
+ADMIN_PASSWORD=<your-password>
 NUXT_SESSION_PASSWORD=<a-32-characters-long-password>
 NUXT_UI_PRO_LICENSE=<your-license>
 ```

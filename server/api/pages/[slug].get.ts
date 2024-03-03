@@ -4,10 +4,10 @@ export default eventHandler(async (event) => {
     throw createError({ statusCode: 400, message: 'Missing slug' })
   }
 
-  const notes = useKV('notes')
-  const note: any = await notes.getItem(slug) || { body: '# Hello' }
+  let note: any = await hubKV().get(slug)
 
-  if (!note.parsed) {
+  if (!note) {
+    note = { body: '# Hello' }
     note.parsed = await parseMarkdown(note.body)
   }
 

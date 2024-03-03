@@ -40,7 +40,7 @@ function save () {
   saving.value = true
   $fetch(`/api/pages/${slug}`, {
     method: 'PUT',
-    body: page.value.body
+    body: { body: page.value.body }
   }).then(async ({ parsed }) => {
     page.value.parsed = parsed
     editing.value = saving.value = false
@@ -54,13 +54,13 @@ function save () {
 <template>
   <UPage>
     <template #right>
-      <UDocsToc :links="page.parsed?.toc?.links">
+      <UContentToc :links="page.parsed?.toc?.links">
         <template v-if="loggedIn" #bottom>
           <UButton v-if="!editing" color="gray" @click="editMode">
             Edit this page
           </UButton>
         </template>
-      </UDocsToc>
+      </UContentToc>
     </template>
     <UPageHeader v-if="!editing" :title="page.parsed?.data?.title" :description="page.parsed?.data?.description" @dblclick="editMode" />
     <UPageBody prose @dblclick="editMode">

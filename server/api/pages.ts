@@ -1,3 +1,3 @@
 export default eventHandler(async (event) => {
-  return useKV('notes').getKeys()
+  return hubKV().keys()
 })
