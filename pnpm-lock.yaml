@@ -30,8 +30,8 @@ dependencies:
     specifier: ^0.0.20
     version: 0.0.20
   nuxt-og-image:
-    specifier: ^3.0.0-rc.41
-    version: 3.0.0-rc.41(@lezer/common@1.2.1)(@nuxt/devtools@1.0.8)(@vue/compiler-core@3.4.21)(nuxt@3.10.3)(postcss@8.4.35)(vite@5.1.4)(vue@3.4.21)(webpack@5.90.3)
+    specifier: ^3.0.0-rc.42
+    version: 3.0.0-rc.42(@lezer/common@1.2.1)(@nuxt/devtools@1.0.8)(@vue/compiler-core@3.4.21)(nuxt@3.10.3)(postcss@8.4.35)(vite@5.1.4)(vue@3.4.21)(webpack@5.90.3)
   pathe:
     specifier: ^1.1.2
     version: 1.1.2
@@ -7557,8 +7557,8 @@ packages:
       - vue
     dev: false
 
-  /nuxt-og-image@3.0.0-rc.41(@lezer/common@1.2.1)(@nuxt/devtools@1.0.8)(@vue/compiler-core@3.4.21)(nuxt@3.10.3)(postcss@8.4.35)(vite@5.1.4)(vue@3.4.21)(webpack@5.90.3):
-    resolution: {integrity: sha512-i0zmjJUCKVC3DHrvNCWIDw7k/8ZTSe6NtBZwMAVQloXvasQRA0Q4OP+t8d8EHpbiEfGORgaHDmwCeZOIQ++ZYQ==}
+  /nuxt-og-image@3.0.0-rc.42(@lezer/common@1.2.1)(@nuxt/devtools@1.0.8)(@vue/compiler-core@3.4.21)(nuxt@3.10.3)(postcss@8.4.35)(vite@5.1.4)(vue@3.4.21)(webpack@5.90.3):
+    resolution: {integrity: sha512-ucKuxlrHzD/Q1cq1WHpVc3ewlhPNVldZwjMLDuUR+QBnwfWYNxZfUKo/4yBSraUmi30gGfyMcmQmELGjmuVSeQ==}
     dependencies:
       '@css-inline/css-inline': 0.13.0
       '@css-inline/css-inline-wasm': 0.13.0
