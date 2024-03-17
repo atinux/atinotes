@@ -23,8 +23,9 @@ async function login () {
       await refreshSession()
       loginModal.value = false
     })
-    .catch(() => toast.add({
+    .catch((err) => toast.add({
       title: 'Wrong password',
+      description: err.data?.message,
       color: 'red'
     }))
   password.value = ''
