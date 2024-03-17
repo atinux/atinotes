@@ -23,13 +23,6 @@ export default defineNuxtConfig({
       }
     }
   },
-  $production: {
-    nitro: {
-      experimental: {
-        wasm: true
-      }
-    }
-  },
   devtools: {
     enabled: true
   }
