@@ -23,6 +23,9 @@ dependencies:
   '@nuxtjs/mdc':
     specifier: ^0.6.1
     version: 0.6.1
+  '@nuxtjs/plausible':
+    specifier: ^0.2.4
+    version: 0.2.4
   nuxt:
     specifier: ^3.10.3
     version: 3.11.0(@types/node@20.11.28)(eslint@8.57.0)(typescript@5.4.2)(vite@5.1.6)(vue-tsc@2.0.6)
@@ -2208,6 +2211,18 @@ packages:
       unist-builder: 4.0.0
       unist-util-visit: 5.0.0
       unwasm: 0.3.8
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: false
+
+  /@nuxtjs/plausible@0.2.4:
+    resolution: {integrity: sha512-9HrSl9ZGKS/7bULAt8uzAGo9BJyIZebzRSLQD8ZhiODaGyRdEQlgcJBw5JgUzjcC5n4T0ZlX3FC6C3Wyp7opgA==}
+    dependencies:
+      '@nuxt/kit': 3.11.0
+      defu: 6.1.4
+      pathe: 1.1.2
+      plausible-tracker: 0.3.8
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -8137,6 +8152,11 @@ packages:
       jsonc-parser: 3.2.1
       mlly: 1.6.1
       pathe: 1.1.2
+
+  /plausible-tracker@0.3.8:
+    resolution: {integrity: sha512-lmOWYQ7s9KOUJ1R+YTOR3HrjdbxIS2Z4de0P/Jx2dQPteznJl2eX3tXxKClpvbfyGP59B5bbhW8ftN59HbbFSg==}
+    engines: {node: '>=10'}
+    dev: false
 
   /playwright-core@1.42.1:
     resolution: {integrity: sha512-mxz6zclokgrke9p1vtdy/COWBH+eOZgYUVVU34C73M+4j4HLlQJHtfcqiqqxpP0o8HhMkflvfbquLX5dg6wlfA==}

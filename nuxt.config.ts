@@ -10,7 +10,8 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/content',
     'nuxt-og-image',
-    'nuxt-auth-utils'
+    'nuxt-auth-utils',
+    "@nuxtjs/plausible"
   ],
   ui: {
     icons: ['simple-icons']
