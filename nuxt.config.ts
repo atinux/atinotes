@@ -12,6 +12,9 @@ export default defineNuxtConfig({
     'nuxt-auth-utils',
     '@nuxtjs/plausible'
   ],
+  hub: {
+    kv: true
+  },
   ui: {
     icons: ['simple-icons']
   },

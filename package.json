@@ -11,27 +11,27 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@iconify-json/simple-icons": "^1.1.98",
+    "@iconify-json/simple-icons": "^1.1.99",
     "@nuxt/content": "^2.12.1",
     "@nuxt/ui": "^2.15.1",
     "@nuxt/ui-pro": "^1.1.0",
-    "@nuxthub/core": "^0.4.1",
+    "@nuxthub/core": "^0.5.0",
     "@nuxtjs/mdc": "^0.6.1",
     "@nuxtjs/plausible": "^1.0.0",
     "nuxt": "^3.11.2",
     "nuxt-auth-utils": "^0.0.22",
-    "nuxt-og-image": "^3.0.0-rc.51",
+    "nuxt-og-image": "^3.0.0-rc.52",
     "pathe": "^1.1.2",
     "scule": "^1.3.0",
     "unstorage": "^1.10.2"
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.1.5",
-    "@nuxt/eslint-config": "^0.3.1",
-    "@types/node": "^20.12.5",
-    "eslint": "^9.0.0",
+    "@nuxt/eslint-config": "^0.3.2",
+    "@types/node": "^20.12.6",
+    "eslint": "^8.0.0",
     "typescript": "^5.4.4",
-    "vue-tsc": "^2.0.10",
+    "vue-tsc": "^2.0.11",
     "wrangler": "^3.48.0"
   }
 }
