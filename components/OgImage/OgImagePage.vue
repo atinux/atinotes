@@ -1,8 +1,4 @@
 <script lang="ts" setup>
-defineOptions({
-  inheritAttrs: false
-})
-
 defineProps({
   title: {
     type: String,
@@ -13,6 +9,8 @@ defineProps({
     required: true
   }
 })
+
+const { host } = useRequestURL()
 </script>
 
 <template>
@@ -26,7 +24,7 @@ defineProps({
       </p>
     </div>
     <div class="font-bold text-4xl flex flex-row">
-      notes<span class="text-gray-600">.atinux.com</span>
+      {{ host }}
     </div>
   </div>
 </template>

@@ -13,8 +13,7 @@ useSeoMeta({
   ogTitle: () => (page.value.parsed.data?.title || 'Missing title') + ' | Atinotes'
 })
 
-defineOgImage({
-  component: 'Page',
+defineOgImageComponent('OgImagePage', {
   title: page.value.parsed.data?.title || 'Missing title',
   description: page.value.parsed.data?.description || 'Missing description'
 })
