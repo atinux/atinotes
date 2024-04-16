@@ -12,7 +12,7 @@ useSeoMeta({
   twitterSite: 'atinux'
 })
 
-async function login () {
+async function login() {
   if (!password.value) return
   logging.value = true
   await $fetch('/api/login', {
@@ -23,7 +23,7 @@ async function login () {
       await refreshSession()
       loginModal.value = false
     })
-    .catch((err) => toast.add({
+    .catch(err => toast.add({
       title: 'Wrong password',
       description: err.data?.message,
       color: 'red'
@@ -44,11 +44,25 @@ async function login () {
     </template>
     <template #right>
       <UColorModeButton />
-      <UButton icon="i-simple-icons-github" to="https://github.com/atinux/atinotes" target="_blank" color="gray" variant="ghost" />
-      <UButton v-if="loggedIn" color="gray" @click="clear">
+      <UButton
+        icon="i-simple-icons-github"
+        to="https://github.com/atinux/atinotes"
+        target="_blank"
+        color="gray"
+        variant="ghost"
+      />
+      <UButton
+        v-if="loggedIn"
+        color="gray"
+        @click="clear"
+      >
         Logout
       </UButton>
-      <UButton v-else color="gray" @click="loginModal = true">
+      <UButton
+        v-else
+        color="gray"
+        @click="loginModal = true"
+      >
         Login
       </UButton>
     </template>
@@ -60,11 +74,22 @@ async function login () {
   </UMain>
   <UModal v-model="loginModal">
     <UCard>
-      <UForm class="space-y-2" @submit="login">
+      <UForm
+        class="space-y-2"
+        @submit="login"
+      >
         <UFormGroup label="Password">
-          <UInput v-model="password" type="password" icon="i-heroicons-lock-closed" />
+          <UInput
+            v-model="password"
+            type="password"
+            icon="i-heroicons-lock-closed"
+          />
         </UFormGroup>
-        <UButton type="submit" :disabled="password.length < 1" :loading="logging">
+        <UButton
+          type="submit"
+          :disabled="password.length < 1"
+          :loading="logging"
+        >
           Login
         </UButton>
       </UForm>

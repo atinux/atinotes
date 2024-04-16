@@ -18,7 +18,7 @@ defineOgImageComponent('OgImagePage', {
   description: page.value.parsed.data?.description || 'Missing description'
 })
 
-async function editMode () {
+async function editMode() {
   if (!loggedIn.value) {
     return
   }
@@ -28,13 +28,13 @@ async function editMode () {
   autogrow()
 }
 
-function autogrow () {
+function autogrow() {
   if (!editor.value) return
   editor.value.style.height = '5px'
   editor.value.style.height = `${editor.value.scrollHeight}px`
 }
 
-function save () {
+function save() {
   if (!editing.value || saving.value) return
   saving.value = true
   $fetch(`/api/pages/${slug}`, {
@@ -43,7 +43,7 @@ function save () {
   }).then(async ({ parsed }) => {
     page.value.parsed = parsed
     editing.value = saving.value = false
-  }).catch(err => {
+  }).catch((err) => {
     editing.value = saving.value = false
     alert(err.data.message)
   })
@@ -54,22 +54,50 @@ function save () {
   <UPage>
     <template #right>
       <UContentToc :links="page.parsed?.toc?.links">
-        <template v-if="loggedIn" #bottom>
-          <UButton v-if="!editing" color="gray" @click="editMode">
+        <template
+          v-if="loggedIn"
+          #bottom
+        >
+          <UButton
+            v-if="!editing"
+            color="gray"
+            @click="editMode"
+          >
             Edit this page
           </UButton>
         </template>
       </UContentToc>
     </template>
-    <UPageHeader v-if="!editing" :title="page.parsed?.data?.title" :description="page.parsed?.data?.description" @dblclick="editMode" />
-    <UPageBody prose @dblclick="editMode">
-      <form v-if="editing" class="editor-wrapper" @submit.prevent="save">
-        <textarea ref="editor" v-model="page.body" @blur="save" @input="autogrow" />
+    <UPageHeader
+      v-if="!editing"
+      :title="page.parsed?.data?.title"
+      :description="page.parsed?.data?.description"
+      @dblclick="editMode"
+    />
+    <UPageBody
+      prose
+      @dblclick="editMode"
+    >
+      <form
+        v-if="editing"
+        class="editor-wrapper"
+        @submit.prevent="save"
+      >
+        <textarea
+          ref="editor"
+          v-model="page.body"
+          @blur="save"
+          @input="autogrow"
+        />
         <UButton type="submit">
           {{ saving ? 'Saving' : 'Save' }}
         </UButton>
       </form>
-      <MDCRenderer v-else :body="page.parsed.body" class="body" />
+      <MDCRenderer
+        v-else
+        :body="page.parsed.body"
+        class="body"
+      />
     </UPageBody>
   </UPage>
 </template>
