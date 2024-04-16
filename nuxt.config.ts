@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   ],
   modules: [
     '@nuxthub/core',
+    '@nuxt/eslint',
     '@nuxt/ui',
     '@nuxt/content',
     'nuxt-og-image',
@@ -23,6 +24,14 @@ export default defineNuxtConfig({
       theme: {
         default: 'vitesse-light',
         dark: 'material-theme-palenight'
+      }
+    }
+  },
+  eslint: {
+    config: {
+      stylistic: {
+        quotes: 'single',
+        commaDangle: 'never'
       }
     }
   },
