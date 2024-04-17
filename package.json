@@ -16,7 +16,7 @@
     "@nuxt/eslint": "^0.3.7",
     "@nuxt/ui": "^2.15.2",
     "@nuxt/ui-pro": "^1.1.0",
-    "@nuxthub/core": "^0.5.5",
+    "@nuxthub/core": "^0.5.6",
     "@nuxtjs/mdc": "^0.6.1",
     "@nuxtjs/plausible": "^1.0.0",
     "nuxt": "^3.11.2",
@@ -33,6 +33,6 @@
     "eslint": "^9.0.0",
     "typescript": "^5.4.5",
     "vue-tsc": "^2.0.13",
-    "wrangler": "^3.50.0"
+    "wrangler": "^3.51.0"
   }
 }
