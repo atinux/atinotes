@@ -2,6 +2,7 @@
 const { loggedIn, fetch: refreshSession, clear } = useUserSession()
 const toast = useToast()
 const loginModal = ref(false)
+const showLogin = ref(false)
 const logging = ref(false)
 const password = ref('')
 
@@ -31,6 +32,10 @@ async function login() {
   password.value = ''
   logging.value = false
 }
+onMounted(async () => {
+  await refreshSession()
+  showLogin.value = true
+})
 </script>
 
 <template>
@@ -51,20 +56,22 @@ async function login() {
         color="gray"
         variant="ghost"
       />
-      <UButton
-        v-if="loggedIn"
-        color="gray"
-        @click="clear"
-      >
-        Logout
-      </UButton>
-      <UButton
-        v-else
-        color="gray"
-        @click="loginModal = true"
-      >
-        Login
-      </UButton>
+      <div v-if="showLogin">
+        <UButton
+          v-if="loggedIn"
+          color="gray"
+          @click="clear"
+        >
+          Logout
+        </UButton>
+        <UButton
+          v-else
+          color="gray"
+          @click="loginModal = true"
+        >
+          Login
+        </UButton>
+      </div>
     </template>
   </UHeader>
   <UMain>
