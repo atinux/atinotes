@@ -16,6 +16,10 @@ export default defineNuxtConfig({
   hub: {
     kv: true
   },
+  routeRules: {
+    '/api/**': { swr: false, cache: false },
+    '/**': { swr: true }
+  },
   ui: {
     icons: ['simple-icons']
   },
