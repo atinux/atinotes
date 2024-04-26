@@ -14,13 +14,7 @@ export default defineNuxtConfig({
     '@nuxtjs/plausible'
   ],
   hub: {
-    kv: true,
-    // used for routeRules
-    cache: true
-  },
-  routeRules: {
-    '/api/**': { swr: false, cache: false },
-    '/**': { swr: true }
+    kv: true
   },
   ui: {
     icons: ['simple-icons']
