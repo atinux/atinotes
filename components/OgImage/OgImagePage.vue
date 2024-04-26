@@ -27,7 +27,7 @@ const { host } = useRequestURL()
       </p>
     </div>
     <div class="font-bold text-4xl flex flex-row">
-      {{ host }}
+      notes.atinux.com
     </div>
   </div>
 </template>
