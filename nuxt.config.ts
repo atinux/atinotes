@@ -13,6 +13,11 @@ export default defineNuxtConfig({
     'nuxt-auth-utils',
     '@nuxtjs/plausible'
   ],
+  routeRules: {
+    // Used for notes.atinux.com
+    // Fell free to remove it
+    '/nuxt-custom-fetch': { redirect: { to: 'https://nuxt.com/docs/guide/recipes/custom-usefetch', statusCode: 302 } }
+  },
   hub: {
     kv: true
   },
