@@ -4,6 +4,8 @@ Read more on https://notes.atinux.com
 
 [![Nuxt UI Pro](https://img.shields.io/badge/Made%20with-Nuxt%20UI%20Pro-00DC82?logo=nuxt.js&labelColor=020420)](https://ui.nuxt.com/pro)
 
+[![Deploy to NuxtHub](https://hub.nuxt.com/button.svg)](https://admin.hub.nuxt.com/new?template=atinotes)
+
 ## Setup
 
 Make sure to install the dependencies:
