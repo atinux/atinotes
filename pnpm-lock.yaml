@@ -15,8 +15,8 @@ dependencies:
     specifier: ^0.4.0
     version: 0.4.0(eslint@9.8.0)(typescript@5.5.4)(vite@5.3.5)
   '@nuxt/ui':
-    specifier: ^2.18.2
-    version: 2.18.2(vite@5.3.5)(vue@3.4.34)
+    specifier: ^2.18.3
+    version: 2.18.3(vite@5.3.5)(vue@3.4.34)
   '@nuxt/ui-pro':
     specifier: ^1.3.1
     version: 1.3.1(vite@5.3.5)(vue@3.4.34)
@@ -33,8 +33,8 @@ dependencies:
     specifier: ^3.12.4
     version: 3.12.4(@types/node@22.0.0)(eslint@9.8.0)(typescript@5.5.4)(vite@5.3.5)(vue-tsc@2.0.29)
   nuxt-auth-utils:
-    specifier: ^0.3.0
-    version: 0.3.0
+    specifier: ^0.3.2
+    version: 0.3.2
   nuxt-og-image:
     specifier: 3.0.0-rc.64
     version: 3.0.0-rc.64(vite@5.3.5)(vue@3.4.34)
@@ -1838,8 +1838,8 @@ packages:
       - vite
     dev: false
 
-  /@nuxt/icon@1.3.1(vite@5.3.5)(vue@3.4.34):
-    resolution: {integrity: sha512-bpue1uzVTx3Fiwb0625ShaY5SFio8vcZ3L4kIb2tBc/BbENASQcCa27uk87zuWFJdnRWQbNpn/L4wc+wKZ0Wbw==}
+  /@nuxt/icon@1.4.0(vite@5.3.5)(vue@3.4.34):
+    resolution: {integrity: sha512-epTJGQTOk8ScE7iN2G1laemDZrpd48l07bCFIYDCg+rgO5IJGvgbVqCIdxbvAMfZJMoH9y/q540hDRQR0ju1eA==}
     dependencies:
       '@iconify/collections': 1.0.444
       '@iconify/types': 2.0.0
@@ -1938,7 +1938,7 @@ packages:
   /@nuxt/ui-pro@1.3.1(vite@5.3.5)(vue@3.4.34):
     resolution: {integrity: sha512-96G0MWO5Bh4rFlQDfpYfn/tIeJUSgyzHET2i99RX8zatJAygRMLoehT9QBw8+sKebLXRzryAj2uNziPrbWDtjg==}
     dependencies:
-      '@nuxt/ui': 2.18.2(vite@5.3.5)(vue@3.4.34)
+      '@nuxt/ui': 2.18.3(vite@5.3.5)(vue@3.4.34)
       '@vueuse/core': 10.11.0(vue@3.4.34)
       defu: 6.1.4
       git-url-parse: 14.1.0
@@ -1970,14 +1970,14 @@ packages:
       - vue
     dev: false
 
-  /@nuxt/ui@2.18.2(vite@5.3.5)(vue@3.4.34):
-    resolution: {integrity: sha512-azij3fV1FkEMG+sgTMEQiXkJMnII3HNQE+3r8g9QhUgO7iZ13TlUkXl0iYd+U/cGa4aZYki6WXJ45WyETtV/IA==}
+  /@nuxt/ui@2.18.3(vite@5.3.5)(vue@3.4.34):
+    resolution: {integrity: sha512-bFy3K0cDPRlEYclQAjIgVFUGFb91sGYAtBmEzunFux85aUw0g4tI7vsWdyVijhKzGOyOjBuLGaG40kGl4AIXpA==}
     engines: {node: '>=v16.20.2'}
     dependencies:
       '@headlessui/tailwindcss': 0.2.1(tailwindcss@3.4.7)
       '@headlessui/vue': 1.7.22(vue@3.4.34)
       '@iconify-json/heroicons': 1.1.23
-      '@nuxt/icon': 1.3.1(vite@5.3.5)(vue@3.4.34)
+      '@nuxt/icon': 1.4.0(vite@5.3.5)(vue@3.4.34)
       '@nuxt/kit': 3.12.4(magicast@0.3.4)
       '@nuxtjs/color-mode': 3.4.2
       '@nuxtjs/tailwindcss': 6.12.1
@@ -7212,8 +7212,8 @@ packages:
       fsevents: 2.3.3
     dev: false
 
-  /nuxt-auth-utils@0.3.0:
-    resolution: {integrity: sha512-iuQFyQRQ3rPGfEttKBO1t6oEjvSawF8q/aJrWdb6EShvg0CTiMmWtRkbBsJNJTg5Y6uYOFX651UTE9WC+EWrZg==}
+  /nuxt-auth-utils@0.3.2:
+    resolution: {integrity: sha512-A2gRelkEQxLoosIUw6TFFsMaq06XJ6dVdUYKRSKzxfMepBUq5v7GXiw+gZ9TVAXb0YjN9obmqJOBzf2qNI77yw==}
     dependencies:
       '@nuxt/kit': 3.12.4(magicast@0.3.4)
       defu: 6.1.4
