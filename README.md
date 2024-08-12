@@ -1,4 +1,4 @@
-# Atinotes
+# Save your Markdown notes online with Atinotes 🖌️
 
 Read more on https://notes.atinux.com
 
