@@ -20,7 +20,7 @@ pnpm install
 Start the development server on http://localhost:3000
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Copy the `.env.example` to `.env` and update the variables to your own.
@@ -32,13 +32,13 @@ Note that you need a [Nuxt UI Pro license](https://ui.nuxt.com/pro) to build the
 Build the application for production:
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 Locally preview production build:
 
 ```bash
-npm run preview
+pnpm run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
@@ -50,13 +50,13 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 You can deploy this template directy on your CloudFlare account with zero configuration with the [NuxtHub Console](https://console.hub.nuxt.com) and get a free `.nuxt.dev` domain.
 
 ```bash
-npx nuxthub deploy
+pnpx nuxthub deploy
 ```
 
 Once deployed, you can manage your project by running:
 
 ```bash
-npx nuxthub manage
+pnpx nuxthub manage
 ```
 
 Then add the following environement variables:
