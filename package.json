@@ -1,7 +1,7 @@
 {
   "name": "atinotes",
   "private": true,
-  "packageManager": "pnpm@10.16.1",
+  "packageManager": "pnpm@10.25.0",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -11,27 +11,27 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@iconify-json/simple-icons": "^1.2.52",
-    "@nuxt/eslint": "^1.9.0",
-    "@nuxt/image": "^1.11.0",
-    "@nuxt/ui": "^4.0.0-alpha.1",
-    "@nuxthub/core": "^0.9.0",
-    "@nuxtjs/mdc": "^0.17.4",
+    "@iconify-json/simple-icons": "^1.2.62",
+    "@nuxt/eslint": "^1.12.1",
+    "@nuxt/image": "^2.0.0",
+    "@nuxt/ui": "^4.2.1",
+    "@nuxthub/core": "^0.10.0",
+    "@nuxtjs/mdc": "^0.19.1",
     "@nuxtjs/plausible": "^2.0.1",
-    "nuxt": "^4.1.2",
-    "nuxt-auth-utils": "^0.5.24",
-    "nuxt-og-image": "5.1.9",
+    "nuxt": "^4.2.2",
+    "nuxt-auth-utils": "^0.5.26",
+    "nuxt-og-image": "5.1.12",
     "pathe": "^2.0.3",
     "scule": "^1.3.0"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^2.6.3",
-    "@nuxt/eslint-config": "^1.9.0",
-    "@types/node": "^24.5.0",
-    "eslint": "^9.35.0",
-    "typescript": "^5.9.2",
-    "vue-tsc": "^3.0.7",
-    "wrangler": "^4.37.1"
+    "@nuxt/devtools": "^3.1.1",
+    "@nuxt/eslint-config": "^1.12.1",
+    "@types/node": "^24.10.2",
+    "eslint": "^9.39.1",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.1.8",
+    "wrangler": "^4.53.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

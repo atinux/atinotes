@@ -1,3 +1,4 @@
+import { kv } from 'hub:kv'
 import { parseMarkdown } from '@nuxtjs/mdc/runtime'
 
 export default eventHandler(async (event) => {
@@ -10,7 +11,7 @@ export default eventHandler(async (event) => {
   const { body } = await readBody(event)
   const parsed = await parseMarkdown(body)
 
-  await hubKV().set(slug, { body, parsed })
+  await kv.set(slug, { body, parsed })
 
   return { slug, body, parsed }
 })

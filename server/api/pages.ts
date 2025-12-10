@@ -1,3 +1,5 @@
+import { kv } from 'hub:kv'
+
 export default eventHandler(async () => {
-  return hubKV().keys()
+  return kv.keys()
 })
